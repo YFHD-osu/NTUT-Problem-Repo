@@ -4,7 +4,7 @@
   "description": "The first test collection for test purpose",
   "createDate": 1744699235053,
   "uuid": "23fa7c96-e4be-4659-8b06-e366390da49d",
-  "problemIDs": [
+  "problems": [
     "0513d4a9-981d-48e2-9a4e-4759acf83227"
   ]
 }
