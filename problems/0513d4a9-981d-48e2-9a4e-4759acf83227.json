@@ -9,14 +9,17 @@
   "problem": [
     "早安，美麗的一天"
   ],
-  "testcase": [
-    {
-      "input": [
-        "1 2", "3 4"
-      ],
-      "output": [
-        "ANS Line 1", "ANS Line 2"
-      ]
-    }
-  ]
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": "1 2 3",
+        "output": "Hello World"
+      },
+      {
+        "input": "4 5 6",
+        "output": "Hello World"
+      }
+    ]
+  }
 }
