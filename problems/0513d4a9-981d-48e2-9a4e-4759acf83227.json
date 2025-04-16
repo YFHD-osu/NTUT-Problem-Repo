@@ -5,5 +5,11 @@
   "createDate": 1744699235053,
   "problem": [
     "早安，美麗的一天"
+  ],
+  "testcase": [
+    {
+      "input": "1 2",
+      "output": "3 4"
+    }
   ]
 }
