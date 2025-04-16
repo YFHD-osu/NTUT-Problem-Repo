@@ -7,7 +7,12 @@
     "23fa7c96-e4be-4659-8b06-e366390da49d"
   ],
   "problem": [
-    "早安，美麗的一天"
+    "設計一個 C 程式，讓使用者輸入時間（格式為24小時制，例如 8 表示早上8點，或 15 表示下午3點）。",
+    "根據輸入的時間，程式會輸出對應的問候語。",
+    "例如，時間在清晨到中午期間，輸出「Good Morning」",
+    "中午到傍晚期間，輸出「Good Afternoon」",
+    "傍晚到晚上期間，輸出「Good evening」。",
+    "題目來源: Microsoft Copilot. All rights reserved."
   ],
   "testcase": {
     "codeType": 1,
