@@ -11,7 +11,7 @@
     "圓有半徑，矩形有長寬，正方形有邊長，三角形有三個邊。計算各圖形周長、面積，及所有圖形周長、面積加總(三角形無需考慮是否為合法三角形)。",
     "注意: PI設4。所有長度、計算均以整數處理。",
     "本題須使用以下struct定義，以及定義與實做相對的function pointer的function才計分。",
-    "<img src=\"https://imgur.com/a/ZZzqJYa.png\">",
+    "<img src=\"https://i.imgur.com/r8oXUbz.png\">",
     "",
     "#define shapeText(TYPE) char name[10]; \\ ",
     "int (*perimeter)(struct TYPE*); \\ ",
