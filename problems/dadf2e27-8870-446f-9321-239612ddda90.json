@@ -1,8 +1,8 @@
 {
-  "_comment": "112年 PD II 期末上機考 第二題 LinkList開發專案",
+  "_comment": "112年 PD II 期末上機考 第二題",
   "uuid": "dadf2e27-8870-446f-9321-239612ddda90",
   "title": "2. LinkList開發專案",
-  "createDate": 0,
+  "createDate": 1744895429487,
   "collections": [
     "e54b1e3c-522c-4f5c-8ef4-d8400cb6efab"
   ],
@@ -13,6 +13,8 @@
     "以下圖為例，節點2完成後，才能開始節點4的開發。",
     "節點4與節點5都完成後，才能開始節點7的開發。節點1需2天，節點2需3天，節點3需6天，節點4需11 天，節點5需9天。完成專案最少需40天，其中花費時間最長的路徑為9,2,4,7,8。完成項目最多的路徑為1,3,5,7,8 和 9,2,4,7,8。",
     "<img src=\"https://i.imgur.com/hxGTdLN.png\">",
+    "",
+    "",
     "",
     "本題須使用以下struct與Link List實作task才計分",
     "typedef struct node_s { ",
