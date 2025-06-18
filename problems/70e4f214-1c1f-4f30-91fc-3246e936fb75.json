@@ -1,0 +1,229 @@
+{
+  "uuid": "70e4f214-1c1f-4f30-91fc-3246e936fb75",
+  "title": "3. 集合運算",
+  "createDate": 1740931140000,
+  "collections": [
+    "3e78a29a-20d2-49c6-8f99-25d7491caebd"
+  ],
+  "problem": [
+    "給定一個整數Z，以Z的二進位編碼表示一個集合S。集合S的合法元素E，E = [a, b, c, d, e, f]，其中a表示二進位的第2^0位元，b表示二進位的第2^1位元，依此類推，f表示二進位的第2^5位元。例如Z = 0 (二進位編碼00000000)，所有bit為0，表示S = {ø}， Z = 15 (00001111)，2^0位元~2^3位元為1，表示 S = {d, c, b, a}，Z = 9 (00001001) 表示 S = {d, a}，Z = 63表示S = {f, e, d, c, b, a}(00111111)。給定兩集合S0、S1，以及2個集合的元素e1、e2，e1和e2應屬於集合的合法元素E=[a, b, c, d, e, f]中的任一個。請完成以下運算：",
+    "(1) 將集合的元素e1加入集合S1，變成集合S2",
+    "(2) 判斷集合的元素e2 是否為集合 S2 元素",
+    "(3) 判斷集合S2是否屬於集合S0子集合",
+    "(4) 計算集合S0和集合S2的交集",
+    "(5) 計算集合S0和集合S2的聯集",
+    "(6) 計算集合S0和集合S2的差集 (S0-S2)",
+    "",
+    "【輸入說明】",
+    "第一行，集合S0 (0 <= S0 <= 63)，",
+    "第二行，集合S1 (0 <= S1 <= 63)，",
+    "第三行，一個元素e1(e1應為a~f中的任一個)，",
+    "第四行，一個元素e2(e2應為a~f中的任一個)。",
+    "",
+    "範例輸入：",
+    "0 (集合S0整數值)",
+    "0 (集合S1整數值)",
+    "b (集合的元素e1)",
+    "a (集合的元素e2)",
+    "",
+    "【輸出說明】",
+    "輸出說明：",
+    "第一行輸出集合元素e2是否為集合S2，如果是，輸出\"Y\"，如果不是，則輸出\"N\"",
+    "第二行輸出集合S2是否屬於集合S0的子集合，如果是，輸出\"Y\"，如果不是，則輸出\"N\"",
+    "第三行輸出集合S0和集合S2的交集集合整數，",
+    "第四行輸出集合S0和集合S2的聯集集合整數。",
+    "第五行輸出集合S0和集合S2的差集集合整數。",
+    "當輸入完成後，若發生輸入內容不符合指定範圍時，無須顯示第一行至第五行內容，只需顯示錯誤資訊",
+    "當S0不符合指定範圍，顯示「S0 ERROR」",
+    "當S1不符合指定範圍，顯示「S1 ERROR」",
+    "當e1不符合指定範圍，顯示「e1 ERROR」",
+    "當e2不符合指定範圍，顯示「e2 ERROR」",
+    "",
+    "",
+    "範例輸出：",
+    "N (集合的元素e2與集合S2不相等)",
+    "N (集合S2不屬於S0)",
+    "0 (集合S0和集合S2的交集整數值)",
+    "2 (集合S0和集合S2的聯集整數值)",
+    "0 (集合S0和集合S2的差集整數值)"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "127",
+          "127",
+          "h",
+          "h"
+        ],
+        "output": [
+          "S0 ERROR",
+          "S1 ERROR",
+          "e1 ERROR",
+          "e2 ERROR"
+        ]
+      },
+      {
+        "input": [
+          "-10",
+          "0",
+          "a",
+          "a"
+        ],
+        "output": [
+          "S0 ERROR"
+        ]
+      },
+      {
+        "input": [
+          "0",
+          "8",
+          "b",
+          "a"
+        ],
+        "output": [
+          "N",
+          "N",
+          "0",
+          "10",
+          "0"
+        ]
+      },
+      {
+        "input": [
+          "54",
+          "9",
+          "f",
+          "d"
+        ],
+        "output": [
+          "Y",
+          "N",
+          "32",
+          "63",
+          "22"
+        ]
+      },
+      {
+        "input": [
+          "63",
+          "31",
+          "a",
+          "f"
+        ],
+        "output": [
+          "N",
+          "Y",
+          "31",
+          "63",
+          "32"
+        ]
+      },
+      {
+        "input": [
+          "31",
+          "15",
+          "e",
+          "e"
+        ],
+        "output": [
+          "Y",
+          "Y",
+          "31",
+          "31",
+          "0"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "#include <stdio.h>",
+    "",
+    "char e1, e2, hasError = 0;",
+    "short int s0, s1, s2;",
+    "",
+    "short int _convert(char alpha) {",
+    "  return 1 << alpha - 'a';",
+    "}",
+    "",
+    "short int _add(short int source, short int item) {",
+    "  return source | item;",
+    "}",
+    "",
+    "char _contains(short int source, short int item) {",
+    "  return source & item;",
+    "}",
+    "",
+    "char _subSet(short int big, short int small) {",
+    "  return (big & small) == small;",
+    "}",
+    "",
+    "short int _intersection(short int a, short int b) {",
+    "  return a & b;",
+    "}",
+    "",
+    "short int _union(short int a, short int b) {",
+    "  return a | b;",
+    "}",
+    "",
+    "short int _sub(short int a, short int b) {",
+    "  return a - _intersection(a, b);",
+    "}",
+    "",
+    "int main() {",
+    "  scanf(\"%d\", &s0);",
+    "  scanf(\"%d\", &s1);",
+    "",
+    "  scanf(\" %c\", &e1);",
+    "  scanf(\" %c\", &e2);",
+    "",
+    "  if (s0 < 0 || s0 > 63) {",
+    "    hasError = 1;",
+    "    printf(\"S0 ERROR\\n\");",
+    "  }",
+    "",
+    "  if (s1 < 0 || s1 > 63) {",
+    "    hasError = 1;",
+    "    printf(\"S1 ERROR\\n\");",
+    "  }",
+    "",
+    "  if (e1 < 'a' || e1 > 'f') {",
+    "    hasError = 1;",
+    "    printf(\"e1 ERROR\\n\");",
+    "  }",
+    "",
+    "  if (e2 < 'a' || e2 > 'f') {",
+    "    hasError = 1;",
+    "    printf(\"e2 ERROR\\n\");",
+    "  }",
+    "",
+    "  if (hasError) {",
+    "    return 0;",
+    "  }",
+    "",
+    "  // Step 1",
+    "  s2 = _add(s1, _convert(e1));",
+    "",
+    "",
+    "  // Step 2",
+    "  if (_contains(s2, _convert(e2))) {",
+    "    printf(\"Y\\n\");",
+    "  } else {",
+    "    printf(\"N\\n\");",
+    "  }",
+    "",
+    "  if (_subSet(s0, s2)) {",
+    "    printf(\"Y\\n\");",
+    "  } else {",
+    "    printf(\"N\\n\");",
+    "  }",
+    "",
+    "  printf(\"%d\\n\", _intersection(s0, s2));",
+    "  printf(\"%d\\n\", _union(s0, s2));",
+    "  printf(\"%d\\n\", _sub(s0, s2));",
+    "",
+    "  return 0;",
+    "}"
+  ]
+}
