@@ -1,0 +1,15 @@
+{
+  "name": "112 期末上機考",
+  "description": "計算機程式設計II (C語言) 上機考題目",
+  "createDate": 1744876710414,
+  "uuid": "6c4fc672-ecfe-4614-a103-20ebd6e325fa",
+  "problems": [
+    "eec2c8d5-1498-4226-8f6e-dd6454a174d0",
+    "037f2674-9815-48cf-902c-8785bb6507a9",
+    "d345b368-384f-451a-80f1-1a4e113128cc",
+    "d49c9e7c-0f16-4ab2-89a3-f78047f164b1",
+    "646e6249-d5fa-4cc3-acd5-c3ae394eefa0",
+    "d01a51b1-073b-4971-9959-fac2fd98fe6d",
+    "dbcffb4e-9ac3-4795-9fee-d4eb4f98165f"
+  ]
+}
