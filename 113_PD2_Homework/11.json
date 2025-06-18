@@ -115,5 +115,39 @@
         ]
       }
     ]
-  }
+  },
+  "sampleCode": [
+    "#include <stdio.h>",
+    "",
+    "void G(int n, int k, char (*buf)[], int index) {",
+    "  if (n == 1) {",
+    "    (*buf)[index] = (k == 1) ? '1' : '0';",
+    "    (*buf)[index+1] = '\\0';",
+    "    return;",
+    "  }",
+    "",
+    "  if (k < (1<<(n-1))) {",
+    "    (*buf)[index] = '0';",
+    "    G(n-1, k, buf, index+1);",
+    "    return;",
+    "  }",
+    "",
+    "  (*buf)[index] = '1';",
+    "  G(n-1, (1<<n)-1-k, buf, index+1);",
+    "}",
+    "",
+    "int main() {",
+    "  int n, k;",
+    "  while (1) {",
+    "    scanf(\"%d\", &n);",
+    "    if (n==-1) break;",
+    "    scanf(\"%d\", &k);",
+    "    getchar();",
+    "    char buf[n];",
+    "    G(n, k, &buf, 0);",
+    "    printf(\"%s\\n\", buf);",
+    "  }",
+    "  return 0;",
+    "}"
+  ]
 }
