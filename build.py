@@ -252,6 +252,11 @@ def main() -> None:
   for col in collections:
     col.writeToFile("output")
 
+  # Write index portal json
+  index = {"collections": [ col.uuid for col in collections ]}
+  with open(Path("root"), "w", encoding="utf-8") as f:
+    json.dump(index, f, ensure_ascii=False, indent=2)
+
   return
 
 if __name__ == "__main__":
