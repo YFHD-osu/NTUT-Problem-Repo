@@ -1,0 +1,138 @@
+{
+  "uuid": "a21e1390-b986-4e56-852e-8b8f01d7b4e7",
+  "title": "4. 文章處理",
+  "createDate": 1744895429487,
+  "collections": [
+    "b7799b6e-8dd8-4c4f-805d-e5ad17a90b1c"
+  ],
+  "problem": [
+    "輸入一個英文文章A (空白、大小寫英文字母組合)、 2 個英文字(word-以大小寫英文字母組合) P, Q、文章分析處理指令C，根據處理指令C去對文章A進行操作",
+    "輸入說明 輸出說明 ",
+    "Line 1, 輸入文章A ",
+    "Line 2, 輸入字串P ",
+    "Line 3, 輸入字串Q ",
+    "Line 4, 輸入整數C ",
+    "C=1,在文章A中P字串前插入轉成大寫後的Q字串並輸出。 ",
+    "C=2,將文章A中P字串以轉成小寫後的Q字串取代並輸出。 ",
+    "C=3,將文章A中P字串刪除並輸出。 ",
+    "C=4,分析文章A所有英文字的頻率，依頻率由大到小排序，頻率相同則以英文字的字典順序由大到小排序(e.g.That>This....)輸出。",
+    "輸出單字與頻率中間以空白隔開",
+    "",
+    "此題目的智慧財產權歸 北科大-郭忠義 教授所有，且已獲其明確授權使用。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "Shell and bug danced in the bug a choreography of errors Bug",
+          "bug",
+          "Dog",
+          "1"
+        ],
+        "output": [
+          "Shell and DOG danced in the DOG a choreography of errors Bug"
+        ]
+      },
+      {
+        "input": [
+          "echo the echo silence a hole appear hole all sound and light hole",
+          "hole",
+          "AIR",
+          "2"
+        ],
+        "output": [
+          "echo the echo silence a air hole appear air hole all sound and light air hole"
+        ]
+      },
+      {
+        "input": [
+          "Yes rules yes complexity is not yes needed Simplify communicate clearly achieve more yes",
+          "yes",
+          "yes",
+          "3"
+        ],
+        "output": [
+          "Yes rules complexity is not needed Simplify communicate clearly achieve more"
+        ]
+      },
+      {
+        "input": [
+          "air and pod a air of modernity pod to create seamless air in AIR pod",
+          "AIr",
+          "POD",
+          "4"
+        ],
+        "output": [
+          "pod 3",
+          "air 3",
+          "to 1",
+          "seamless 1",
+          "of 1",
+          "modernity 1",
+          "in 1",
+          "create 1",
+          "and 1",
+          "a 1",
+          "AIR 1"
+        ]
+      },
+      {
+        "input": [
+          "An apple can provide essential nutrients while a can preserves food freshness",
+          "can",
+          "daN",
+          "1"
+        ],
+        "output": [
+          "An apple DAN provide essential nutrients while a DAN preserves food freshness"
+        ]
+      },
+      {
+        "input": [
+          "Bird bird freedom bird embracing the sun bird of its wings a bird of light and freedom",
+          "bird",
+          "DOg",
+          "2"
+        ],
+        "output": [
+          "Bird dog bird freedom dog bird embracing the sun dog bird of its wings a dog bird of light and freedom"
+        ]
+      },
+      {
+        "input": [
+          "Cryptographic key ensure secure communication across key Key",
+          "key",
+          "key",
+          "3"
+        ],
+        "output": [
+          "Cryptographic ensure secure communication across Key"
+        ]
+      },
+      {
+        "input": [
+          "code programmer diligently worked on the code ensuring its code before base it with the project base",
+          "TEST",
+          "NOTHING",
+          "4"
+        ],
+        "output": [
+          "code 3",
+          "the 2",
+          "base 2",
+          "worked 1",
+          "with 1",
+          "project 1",
+          "programmer 1",
+          "on 1",
+          "its 1",
+          "it 1",
+          "ensuring 1",
+          "diligently 1",
+          "before 1"
+        ]
+      }
+    ]
+  }
+}
