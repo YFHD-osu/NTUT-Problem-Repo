@@ -11,6 +11,8 @@ from pathlib import Path
 log_format = "[%(asctime)s] [%(levelname)s] %(message)s"
 time_format = "%H:%M:%S"
 
+OUTPUT_ROOT = "output"
+
 logging.basicConfig(
   level=logging.INFO,
   format=log_format,
@@ -247,14 +249,14 @@ def main() -> None:
     logger.info(f"Collection '{c.name}' loaded with {len(c.problems)} problem(s)")
     collections.append(c)
 
-  FileManager.initOutputFolder("output")
+  FileManager.initOutputFolder(OUTPUT_ROOT)
 
   for col in collections:
-    col.writeToFile("output")
+    col.writeToFile(OUTPUT_ROOT)
 
   # Write index portal json
   index = {"collections": [ col.uuid for col in collections ]}
-  with open(Path("root"), "w", encoding="utf-8") as f:
+  with open(Path(f"{OUTPUT_ROOT}/index.json"), "w", encoding="utf-8") as f:
     json.dump(index, f, ensure_ascii=False, indent=2)
 
   return
