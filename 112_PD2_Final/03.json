@@ -1,11 +1,8 @@
 {
   "_comment": "112年 PD II 期末上機考 第三題",
-  "uuid": "d1909328-08bf-41e9-b827-21c7ae3edc90",
   "title": "3. Double Link List",
   "createDate": 1744895429487,
-  "collections": [
-    "e54b1e3c-522c-4f5c-8ef4-d8400cb6efab"
-  ],
+  "collections": [],
   "problem": [
     "針對空的List，根據下方指令進行加入、刪除、插入、替換等操作。輸出操作後Link List資料。測試資料不會出現相同整數資料。" ,
     "本題須使用以下Link List struct實作才計分。 ",

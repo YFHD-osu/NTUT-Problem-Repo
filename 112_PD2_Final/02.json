@@ -1,11 +1,8 @@
 {
   "_comment": "112年 PD II 期末上機考 第二題",
-  "uuid": "dadf2e27-8870-446f-9321-239612ddda90",
   "title": "2. LinkList開發專案",
   "createDate": 1744895429487,
-  "collections": [
-    "e54b1e3c-522c-4f5c-8ef4-d8400cb6efab"
-  ],
+  "collections": [],
   "problem": [
     "開發專案時，專案會被分割為許多項目，分配給多組程式設計師開發。", 
     "這些項目有順序關係，且只有當順序在前的項目完成，才能開始開發順序在後的項目。",

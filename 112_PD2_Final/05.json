@@ -1,11 +1,8 @@
 {
   "_comment": "112年 PD II 期末上機考 第五題",
-  "uuid": "a506feaf-decf-43ed-90e1-5b9312988a8a",
   "title": "5. 圖形",
   "createDate": 1744895429487,
-  "collections": [
-    "e54b1e3c-522c-4f5c-8ef4-d8400cb6efab"
-  ],
+  "collections": [],
   "problem": [
     "使用struct定義 shape(圖形), circle(圓), rectangle (矩形), square(正方形), triangle(三角形)。",
     "圓有半徑，矩形有長寬，正方形有邊長，三角形有三個邊。計算各圖形周長、面積，及所有圖形周長、面積加總(三角形無需考慮是否為合法三角形)。",

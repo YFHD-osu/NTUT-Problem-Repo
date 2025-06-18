@@ -1,11 +1,8 @@
 {
   "_comment": "112年 PD II 期末上機考 第六題",
-  "uuid": "75fd4906-008b-46a3-8e0f-70141208da7a",
   "title": "6. 工作排程",
   "createDate": 1744895429487,
-  "collections": [
-    "e54b1e3c-522c-4f5c-8ef4-d8400cb6efab"
-  ],
+  "collections": [],
   "problem": [
     "有 M 個工作要在 N 台機器上加工，每個工作 i 包含若干個工序 Oij，這些工序須依序加工，也就是前一道工序Oi(j-1)完成後才可開始下一道工序 Oij。",
     "每道工序 Oij 可用一個有序對(Kij,Tij)表示它需在機器Kij 上面花費 Tij 小時完成，而每台機器一次只能處理一道工序。",

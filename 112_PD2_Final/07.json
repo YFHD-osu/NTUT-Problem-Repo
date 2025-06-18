@@ -1,11 +1,8 @@
 {
   "_comment": "112年 PD II 期末上機考 第七題",
-  "uuid": "82348c39-f6b6-425a-bee3-b1e9acf9037a",
   "title": "7. LinkList多項式相加、相減、相乘",
   "createDate": 1744895429487,
-  "collections": [
-    "e54b1e3c-522c-4f5c-8ef4-d8400cb6efab"
-  ],
+  "collections": [],
   "problem": [
     "(1) void add(pol_t* X, pol_t* Y, pol_t* Z);",
     "//兩個多項式 X, Y相加，Z是結果",
