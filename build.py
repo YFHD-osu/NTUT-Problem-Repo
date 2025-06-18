@@ -157,7 +157,8 @@ class Problem:
     createDate: datetime,
     collections: Optional[List[str]],
     problem: List[str],
-    testcase: TestCaseGroup
+    testcase: TestCaseGroup,
+    sampleCode: Optional[List[str]]
   ):
     self.uuid = uuid
     self.title = title
@@ -165,6 +166,7 @@ class Problem:
     self.collections = collections
     self.problem = problem
     self.testcase = testcase
+    self.sampleCode = sampleCode
 
   @staticmethod
   def fromJson(data: dict, parentUUID: str) -> 'Problem':
@@ -173,6 +175,7 @@ class Problem:
     problem = data["problem"]
     createDate = datetime.fromtimestamp(data["createDate"] / 1000)
     collections = data.get("collections", [])
+    sampleCode = data.get("sampleCode")
 
     if not collections:
       collections = [parentUUID]
@@ -196,7 +199,8 @@ class Problem:
       createDate=createDate,
       collections=collections,
       problem=problem,
-      testcase=testcase
+      testcase=testcase,
+      sampleCode=sampleCode
     )
 
   @staticmethod
@@ -214,7 +218,8 @@ class Problem:
       "createDate": int(self.create_date.timestamp() * 1000),
       "collections": self.collections,
       "problem": self.problem,
-      "testcase": self.testcase.toDict()
+      "testcase": self.testcase.toDict(),
+      "sampleCode": self.sampleCode
     }
   
   def writeToFile(self, root: str):
