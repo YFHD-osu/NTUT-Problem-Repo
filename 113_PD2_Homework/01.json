@@ -136,5 +136,41 @@
         ]
       }
     ]
-  }
+  },
+  "sampleCode": [
+    "#include <math.h>",
+    "#include <stdio.h>",
+    "",
+    "int main() {",
+    "  int a, b, c;",
+    "",
+    "  scanf(\"%d\", &a);",
+    "  scanf(\"%d\", &b);",
+    "  scanf(\"%d\", &c);",
+    "",
+    "  double x1, x2;",
+    "",
+    "  if (b*b - 4*a*c >= 0) {",
+    "    x1 = ((-b)+sqrt(b*b-4*a*c))/(2*a);",
+    "    x2 = ((-b)-sqrt(b*b-4*a*c))/(2*a);",
+    "",
+    "    printf(\"%.1f\\n\", x1);",
+    "    if (x1 == x2) return 0;",
+    "    printf(\"%.1f\", x2);",
+    "",
+    "    return 0;",
+    "  } else {",
+    "    x1 = (double) (-b) / (2*a);",
+    "    x2 = sqrt(-(b*b-4*a*c)) / (2*a);",
+    "",
+    "    x2 = x2 < 0 ? -x2 : x2;",
+    "",
+    "    printf(\"%.1f+%.1fi\\n\", x1, x2);",
+    "    printf(\"%.1f-%.1fi\", x1, x2);",
+    "    return 0;",
+    "  }",
+    "",
+    "  return 0;",
+    "}"
+  ]
 }
