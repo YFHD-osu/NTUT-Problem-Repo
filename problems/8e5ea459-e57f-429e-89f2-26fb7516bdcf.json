@@ -1,0 +1,116 @@
+{
+  "uuid": "8e5ea459-e57f-429e-89f2-26fb7516bdcf",
+  "title": "027 電腦猜數字",
+  "createDate": 1750301438549,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "輸入謎底數字",
+    "範例輸入：",
+    "56312"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "12345"
+        ],
+        "output": [
+          "12345"
+        ]
+      },
+      {
+        "input": [
+          "13254"
+        ],
+        "output": [
+          "13254"
+        ]
+      },
+      {
+        "input": [
+          "90786"
+        ],
+        "output": [
+          "90786"
+        ]
+      },
+      {
+        "input": [
+          "85643"
+        ],
+        "output": [
+          "85643"
+        ]
+      },
+      {
+        "input": [
+          "28901"
+        ],
+        "output": [
+          "28901"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def generate(s: str, M: int, result: str = \"\") -> str:  ",
+    "  if M == 0:",
+    "    return [result]",
+    "  ",
+    "  ret = []",
+    "",
+    "  for i in range(len(s)):",
+    "    ret.extend(generate(f\"{s[:i]}{s[i+1:]}\", M-1, f\"{result}{s[i]}\"))",
+    "  ",
+    "  return ret",
+    "",
+    "def match(s1: str, s2: str) -> tuple:",
+    "  a = 0",
+    "  b = 0",
+    "  for i in range(5):",
+    "    if s1[i] == s2[i]:",
+    "      a += 1",
+    "      continue",
+    "    ",
+    "    b += s2.count(s1[i])",
+    "  ",
+    "  return a, b",
+    "",
+    "def makeResp(answer: str, guess: str):",
+    "  A = 0",
+    "  B = 0",
+    "  for i in range(len(answer)):",
+    "    if answer[i] == guess[i]:",
+    "      A += 1",
+    "      continue",
+    "",
+    "    B += answer.count(guess[i])",
+    "",
+    "  return f\"{A}A{B}B\"",
+    "",
+    "def main() -> None:",
+    "  possibility = generate(\"0123456789\", 5)",
+    "",
+    "  answer = input()",
+    "",
+    "  count = 0",
+    "  guess = \"70312\"",
+    "  while 1:",
+    "    resp = makeResp(answer, guess)",
+    "    a, b = int(resp[0]), int(resp[2])",
+    "",
+    "    if a == 5:",
+    "      print(guess)",
+    "      return",
+    "    ",
+    "    possibility = [x for x in possibility if match(guess, x) == (a,b)]",
+    "    guess = possibility[0]",
+    "    count += 1",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

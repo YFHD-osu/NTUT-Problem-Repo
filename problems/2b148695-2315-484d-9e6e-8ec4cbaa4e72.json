@@ -1,0 +1,114 @@
+{
+  "uuid": "2b148695-2315-484d-9e6e-8ec4cbaa4e72",
+  "title": "025 成對檢查",
+  "createDate": 1750301438548,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "第1行:輸入一整數N (1<=N<=3)",
+    "第2行:輸入一整數D (1<= D <= 6)",
+    "第3~N+2行:輸入一字串",
+    "範例輸入說明:",
+    "Sample Input:",
+    "3                  (3個字串)",
+    "3                  (深度3)",
+    "{b[bc][c(bd)]}     (字串1)",
+    "{q(ac)(df)(bn)r}   (字串2)",
+    "{b{[h]}dc[d(i)a]}  (字串3)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "3",
+          "3",
+          "{[()][]}",
+          "{}[(])",
+          "{{{{{{"
+        ],
+        "output": [
+          "pass,EMPTY",
+          "fail",
+          "fail"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "1",
+          "(Fa[ad(dsa{fd}asdf)srfa]k(ssd)er)",
+          "{(qq{ww}ee){rr}}"
+        ],
+        "output": [
+          "pass,Faker",
+          "pass,EMPTY"
+        ]
+      },
+      {
+        "input": [
+          "1",
+          "2",
+          "([{abc}]qwe({}[qe)qw]hgh)"
+        ],
+        "output": [
+          "fail"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "4",
+          "{a(b[c(D)(O)e][f(F)h]i)(j[k(G)m][n(K)p]q)r}",
+          "(q[w(e{[q]}r)a][a(s{}d)f]z)",
+          "[p(o{i})l((j{h}t)j}g{m)h]"
+        ],
+        "output": [
+          "pass,DOFGK",
+          "pass,EMPTY",
+          "fail"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "L_BRACKET = ['(', '[', '{']",
+    "R_BRACKET = [')', ']', '}']",
+    "",
+    "def main() -> None:",
+    "  count = int(input())",
+    "  depth = int(input())",
+    "  while count:",
+    "    count -= 1",
+    "    resp = valid(input(), depth)",
+    "    ",
+    "    if resp == -1:",
+    "      print(\"fail\")",
+    "    elif not len(resp):",
+    "      print(\"pass,EMPTY\")",
+    "    else:",
+    "      print(\"pass,%s\" % (resp))",
+    "",
+    "def valid(s: str, target: int, data: list=[], result: str = \"\"):",
+    "  if not len(s):",
+    "    if data: return -1",
+    "    return result",
+    "  ",
+    "  if s[0] in L_BRACKET:",
+    "    data.append(L_BRACKET.index(s[0]))",
+    "  ",
+    "  if len(data) == target and s[0] not in L_BRACKET+R_BRACKET:",
+    "    result+=s[0]",
+    "",
+    "  if s[0] in R_BRACKET:",
+    "    if data[-1] != R_BRACKET.index(s[0]):",
+    "      return -1",
+    "    data.pop(len(data)-1)",
+    "",
+    "  return valid(s[1:], target, data, result)",
+    "",
+    "if __name__ == '__main__':",
+    "  main()"
+  ]
+}

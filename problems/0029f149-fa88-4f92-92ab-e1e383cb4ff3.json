@@ -1,0 +1,118 @@
+{
+  "uuid": "0029f149-fa88-4f92-92ab-e1e383cb4ff3",
+  "title": "024 迷你數獨",
+  "createDate": 1750301438544,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "輸入共有4行，每行有4個0~4的整數，其中0表示空白的格子，輸入的每個整數中間以一個空白隔開，表示一個4*4迷你數獨的初始狀態。",
+    "其中：",
+    "(1) 本題目0表示需要程式計算取代數字的地方",
+    "(2) 本題目非0數字固定8個",
+    "(3) 本題目輸入每個直欄、橫列、或區塊，都至少存在一個0",
+    "範例輸入說明:",
+    "Sample Input:",
+    "0 0 0 0",
+    "0 2 3 1",
+    "0 3 2 4",
+    "2 0 0 3"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "3 0 1 4",
+          "0 0 0 2",
+          "2 0 4 0",
+          "1 4 0 0"
+        ],
+        "output": [
+          "3 2 1 4",
+          "4 1 3 2",
+          "2 3 4 1",
+          "1 4 2 3"
+        ]
+      },
+      {
+        "input": [
+          "1 0 4 2",
+          "4 0 3 0",
+          "0 1 0 4",
+          "0 0 1 0"
+        ],
+        "output": [
+          "1 3 4 2",
+          "4 2 3 1",
+          "3 1 2 4",
+          "2 4 1 3"
+        ]
+      },
+      {
+        "input": [
+          "1 0 0 0",
+          "4 2 3 0",
+          "0 0 1 0",
+          "3 1 0 2"
+        ],
+        "output": [
+          "1 3 2 4",
+          "4 2 3 1",
+          "2 4 1 3",
+          "3 1 4 2"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  data = [list(map(int, input().split())) for _ in range(4)]",
+    "",
+    "  for i in fill(data):",
+    "    print(\" \".join(list(map(str, i))))",
+    "    ",
+    "def fill(data: list, depth: int = 0) -> list:",
+    "  r = depth // 4",
+    "  c = depth  % 4",
+    "",
+    "  if depth >= 16:",
+    "    if sum(data[0][:2] + data[1][:2]) != 10:",
+    "      return None",
+    "    ",
+    "    if sum(data[0][2:] + data[1][2:]) != 10:",
+    "      return None",
+    "    ",
+    "    if sum(data[2][:2] + data[3][:2]) != 10:",
+    "      return None",
+    "    ",
+    "    if sum(data[2][2:] + data[3][2:]) != 10:",
+    "      return None",
+    "    ",
+    "    for r in range(len(data)):",
+    "      if sum(data[r]) != 10:",
+    "        return None",
+    "      ",
+    "    for c in range(len(data)):",
+    "      if sum([data[r][c] for r in range(4)]) != 10:",
+    "        return None",
+    "      ",
+    "    return data",
+    "",
+    "  if data[r][c] != 0:",
+    "    return fill(data, depth+1)",
+    "",
+    "  for i in range(1, 5):",
+    "    data[r][c] = i",
+    "    result = fill(data, depth+1)",
+    "",
+    "    if not result: continue",
+    "    return result",
+    "  ",
+    "  data[r][c] = 0",
+    "  return None",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

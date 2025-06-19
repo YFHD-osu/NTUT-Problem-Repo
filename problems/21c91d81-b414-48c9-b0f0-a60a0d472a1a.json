@@ -1,0 +1,105 @@
+{
+  "uuid": "21c91d81-b414-48c9-b0f0-a60a0d472a1a",
+  "title": "034 基因序列",
+  "createDate": 1750301438549,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "第一行：輸入一個基因前面序列字串",
+    "第二行：輸入三個基因後面序列字串，中間以空白間隔",
+    "第三行：輸入一個DNA序列字串",
+    "所有字串的長度皆小於50",
+    "範例輸入：",
+    "AEHG",
+    "TAG TAA TGA",
+    "AEHGTTTTAA"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "AEHG",
+          "TAG TAA TGA",
+          "AEHGTTTTAA"
+        ],
+        "output": [
+          "TTT"
+        ]
+      },
+      {
+        "input": [
+          "ACA",
+          "CAG TCA AGT",
+          "ACATTTTACGCT"
+        ],
+        "output": [
+          "No gene"
+        ]
+      },
+      {
+        "input": [
+          "AETG",
+          "TAG TAA TGA",
+          "AETGTTTTAGAETGCTATGAAETGACGTTTAAAETGACCCATAG"
+        ],
+        "output": [
+          "CTA",
+          "TTT",
+          "ACCCA",
+          "ACGTT"
+        ]
+      },
+      {
+        "input": [
+          "AKLG",
+          "GAT GTA CAT",
+          "AKLGCCCTAGTAAKLGTTTAAACCATAKLGGGGGTAAKLGCTGGAT"
+        ],
+        "output": [
+          "CTG",
+          "GGG",
+          "CCCTA",
+          "TTTAAAC"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  start = input()",
+    "  end = input().split()",
+    "  seq = input()",
+    "",
+    "  possible = seq.split(start)",
+    "  if not seq.startswith(start):",
+    "    possible = possible[1:]",
+    "",
+    "  results = []",
+    "  for item in possible:",
+    "    endLen = findEndLen(item, end)",
+    "",
+    "    if not endLen:",
+    "      continue",
+    "",
+    "    results.append(item[:-endLen])",
+    "  ",
+    "  if not len(results):",
+    "    print(\"No gene\")",
+    "    return",
+    "  ",
+    "  results.sort(key=lambda e: f\"{len(e)}{e}\")",
+    "  print(\"\\n\".join(results))",
+    "",
+    "def findEndLen(a: str, possible: list, ) -> int:",
+    "  for item in possible:",
+    "    if a.endswith(item):",
+    "      return len(item)",
+    "",
+    "  return 0",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

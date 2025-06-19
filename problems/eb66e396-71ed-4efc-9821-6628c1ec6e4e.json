@@ -1,0 +1,120 @@
+{
+  "uuid": "eb66e396-71ed-4efc-9821-6628c1ec6e4e",
+  "title": "山洞找黃金",
+  "createDate": 1750301438545,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "第一行：輸入兩個整數，分別為山洞個數N（3<=N<=10），以及第一個進入的山洞編號K。",
+    "第2~N+1行：每行輸入四個整數，分別是山洞編號、黃金數量、下一個可以選擇前往的兩個山洞編號(Y,Z寶箱鑰匙通往的山洞編號)",
+    "範例輸入說明：",
+    "5 1\t\t（共5個山洞，由編號1進入）",
+    "1 6 2 4\t（編號1的山洞，有6個黃金，可通到編號2、編號4的山洞）",
+    "2 5 3 4\t（編號2的山洞，有5個黃金，可通到編號3、編號4的山洞）",
+    "3 7 2 5\t（編號3的山洞，有7個黃金，可通到編號2、編號5的山洞）",
+    "4 4 2 3\t（編號4的山洞，有4個黃金，可通到編號2、編號3的山洞）",
+    "5 0 0 0\t（編號5的山洞，為一個空的山洞）"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "6 1",
+          "1 6 2 4",
+          "2 5 3 4",
+          "3 7 2 5",
+          "4 4 2 5",
+          "5 0 0 0",
+          "6 9 1 3"
+        ],
+        "output": [
+          "22"
+        ]
+      },
+      {
+        "input": [
+          "4 5",
+          "5 3 6 7",
+          "6 3 5 7",
+          "7 6 5 6",
+          "8 0 0 0"
+        ],
+        "output": [
+          "12"
+        ]
+      },
+      {
+        "input": [
+          "10 1",
+          "1 9 5 6",
+          "2 3 1 3",
+          "3 8 4 7",
+          "4 0 0 0",
+          "5 5 6 9",
+          "6 7 5 8",
+          "7 1 1 8",
+          "8 10 3 10",
+          "9 0 0 0",
+          "10 3 2 8"
+        ],
+        "output": [
+          "46"
+        ]
+      },
+      {
+        "input": [
+          "7 2",
+          "2 3 4 6",
+          "3 4 4 8",
+          "4 1 6 8",
+          "5 7 2 6",
+          "6 5 5 7",
+          "7 7 6 8",
+          "8 2 3 7"
+        ],
+        "output": [
+          "25"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  count, start = input().split()",
+    "  ",
+    "  route = {}",
+    "  for _ in range(int(count)):",
+    "    data = input().split()",
+    "    route[data[0]] = (int(data[1]), [data[2], data[3]])",
+    "",
+    "  print(dfs(route, [start]))",
+    "  ",
+    "def dfs(d: dict, seen: list):",
+    "  if seen[-1] not in d:",
+    "    # print(seen, sumGold(d, seen[:-1]))",
+    "    return sumGold(d, seen[:-1])",
+    "  ",
+    "  if seen[-1] in seen[:-1]:",
+    "    # print(seen, sumGold(d, seen[:-1]))",
+    "    return sumGold(d, seen[:-1])",
+    "",
+    "  # _max = 0",
+    "  a = dfs(d, seen+[d[seen[-1]][1][0]])",
+    "  b = dfs(d, seen+[d[seen[-1]][1][1]])",
+    "  ",
+    "  return max(a, b)",
+    "  for i in d[seen[-1]][1]:",
+    "    res = dfs(d, seen+[i])",
+    "    _max = res if res > _max else res",
+    "  ",
+    "  return _max",
+    "",
+    "def sumGold(d: dict, path: list):",
+    "  return sum(d[str(i)][0] for i in path)",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

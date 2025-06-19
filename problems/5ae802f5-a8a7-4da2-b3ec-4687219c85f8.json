@@ -1,0 +1,179 @@
+{
+  "uuid": "5ae802f5-a8a7-4da2-b3ec-4687219c85f8",
+  "title": "007 衝堂",
+  "createDate": 1750301438547,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "輸入三門課程的資訊",
+    "每一門課程的資訊",
+    "第一行 : 輸入課程編號(int)",
+    "第二行 : 輸入第一節課的上課時間(二位數字，第一個數字為星期，第二個數字為節數)",
+    "第三行 : 輸入第二節課的上課時間(二位數字，第一個數字為星期，第二個數字為節數)",
+    "範例輸入說明:",
+    "Sample Input:",
+    "1001 (第一門課課程編號)",
+    "59 (星期5 第9節課)",
+    "25 (星期2 第5節課)",
+    "1002 (第二門課課程編號)",
+    "25 (星期2 第5節課)",
+    "59 (星期5 第9節課)",
+    "1003 (第三門課課程編號)",
+    "11 (星期1 第1節課)",
+    "25 (星期2 第5節課)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "2001",
+          "12",
+          "13",
+          "2002",
+          "22",
+          "23",
+          "2003",
+          "32",
+          "33"
+        ],
+        "output": [
+          "correct"
+        ]
+      },
+      {
+        "input": [
+          "3001",
+          "22",
+          "23",
+          "2002",
+          "22",
+          "24",
+          "2003",
+          "33",
+          "34"
+        ],
+        "output": [
+          "2002 and 3001 conflict on 22"
+        ]
+      },
+      {
+        "input": [
+          "4001",
+          "28",
+          "29",
+          "4002",
+          "29",
+          "28",
+          "4003",
+          "33",
+          "34"
+        ],
+        "output": [
+          "4001 and 4002 conflict on 28",
+          "4001 and 4002 conflict on 29"
+        ]
+      },
+      {
+        "input": [
+          "5001",
+          "31",
+          "29",
+          "5002",
+          "29",
+          "28",
+          "5003",
+          "33",
+          "28"
+        ],
+        "output": [
+          "5001 and 5002 conflict on 29",
+          "5002 and 5003 conflict on 28"
+        ]
+      },
+      {
+        "input": [
+          "6003",
+          "12",
+          "13",
+          "6002",
+          "12",
+          "13",
+          "6001",
+          "13",
+          "12"
+        ],
+        "output": [
+          "6001 and 6002 conflict on 12",
+          "6001 and 6002 conflict on 13",
+          "6001 and 6003 conflict on 12",
+          "6001 and 6003 conflict on 13",
+          "6002 and 6003 conflict on 12",
+          "6002 and 6003 conflict on 13"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "# Data is constructed with structure: (Name, Time, Mark)",
+    "data: list[tuple[str, str, set]] = []",
+    "",
+    "WEEKS = [\"1\", \"2\", \"3\", \"4\", \"5\"]",
+    "TIMES = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\"]",
+    "",
+    "def addCourse() -> bool:",
+    "  name = input()",
+    "",
+    "  for _ in range(2):",
+    "    time = input()",
+    "    if (time[0] not in WEEKS):",
+    "      return False",
+    "",
+    "    if (time[1] not in TIMES):",
+    "      return False",
+    "    ",
+    "    data.append((name, time, set()))",
+    "  ",
+    "  return True",
+    "",
+    "def main():",
+    "  trigger = False",
+    "  ",
+    "  for _ in range(3):",
+    "    addCourse()",
+    "  ",
+    "  data.sort(key=lambda e: e[0])",
+    "",
+    "  conflicts: list[set] = []",
+    "  ",
+    "  for target in range(0, len(data)):",
+    "    for tamplate in range(0, len(data)):",
+    "    ",
+    "      if tamplate == target: continue",
+    "",
+    "      targetMark = data[target][0]+data[target][1]",
+    "      tamplateMark = data[tamplate][0]+data[tamplate][1]",
+    "      ",
+    "      if tamplateMark in data[target][2]:",
+    "        continue",
+    "      ",
+    "      if targetMark in data[tamplate][2]:",
+    "        continue",
+    "",
+    "      data[target][2].add(tamplateMark)",
+    "      data[tamplate][2].add(targetMark)",
+    "      ",
+    "      if data[tamplate][1] == data[target][1]:",
+    "        trigger = True",
+    "        conflicts.append((data[target][0], data[tamplate][0], data[target][1]))",
+    "  ",
+    "  for i in sorted(conflicts, key=lambda e: e[0]+e[1]+e[2]):",
+    "    print(\"%s and %s conflict on %s\"%i)",
+    "  ",
+    "  if not trigger:",
+    "    print(\"correct\")",
+    "",
+    "if __name__ == \"__main__\": main()"
+  ]
+}

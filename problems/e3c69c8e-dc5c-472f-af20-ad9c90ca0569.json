@@ -1,0 +1,61 @@
+{
+  "uuid": "e3c69c8e-dc5c-472f-af20-ad9c90ca0569",
+  "title": "004 購買書本",
+  "createDate": 1750301438546,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "第一行輸入整數(int) x",
+    "第二行輸入整數(int) y",
+    "第三行輸入整數(int) z",
+    "(x、y、z 範圍皆≥0)",
+    "範例輸入說明:",
+    "Sample Input:",
+    "1",
+    "3",
+    "2"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "0",
+          "1",
+          "3"
+        ],
+        "output": [
+          "1590"
+        ]
+      },
+      {
+        "input": [
+          "0",
+          "0",
+          "0"
+        ],
+        "output": [
+          "0"
+        ]
+      },
+      {
+        "input": [
+          "9",
+          "3",
+          "8"
+        ],
+        "output": [
+          "8600"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "\tprint(\"%d\"%( int(input())*440 + int(input())*1200 + int(input())*130 ))",
+    "",
+    "if __name__ == \"__main__\":",
+    "\tmain()"
+  ]
+}

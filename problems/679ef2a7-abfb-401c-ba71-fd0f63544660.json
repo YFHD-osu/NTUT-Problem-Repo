@@ -1,0 +1,191 @@
+{
+  "uuid": "679ef2a7-abfb-401c-ba71-fd0f63544660",
+  "title": "1. LinkList建構唯一二元樹",
+  "createDate": 1744895429487,
+  "collections": [
+    "cd52a1ea-d5f0-4689-91c0-bfe030b8099a"
+  ],
+  "problem": [
+    "給定前序或後序以及中序，建構唯一的二元樹(非二元搜尋樹)，節點資料為大寫英文字母。輸出剩下的尋訪資料（舉例來說，如果輸入二元樹的前序和中序，則輸出的內容應該是二元樹的後序）。",
+    "前序代號：P",
+    "中序代號：I",
+    "後序代號：O",
+    "",
+    "本題須使用以下struct與Link List實作才計分。",
+    "typedef struct node_s {",
+    "  char data;",
+    "  struct node_s *right, *left;",
+    "  } tree_t;",
+    "typedef tree_t *btree;",
+    "",
+    "輸入說明:",
+    "Line 1:輸入二元樹節點數量n, 1<=n<=20",
+    "Line 2:輸入前序、中序或後序代號。",
+    "Line 3:輸入上筆的尋訪資料。",
+    "Line 4:輸入前序、中序或後序代號。",
+    "Line 5:輸入上筆的尋訪資料",
+    "",
+    "輸出說明:",
+    "1. 輸出剩下的尋訪資料。",
+    "",
+    "測試資料 1: 全滿二元樹找後序",
+    "測試資料 2: 全滿二元樹找前序",
+    "測試資料 3: 全滿二元樹缺右葉節點找後序",
+    "測試資料 4: 全滿二元樹缺右葉節點找前序",
+    "測試資料 5: 全滿二元樹缺左葉節點找後序 ",
+    "測試資料 6: 全滿二元樹缺左葉節點找前序",
+    "測試資料 7~14: 隱藏測資",
+    "",
+    "此題目的智慧財產權歸 北科大-郭忠義 教授所有，且已獲其明確授權使用。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "15",
+          "P",
+          "ACEIJFKLDGMNHOP",
+          "I",
+          "IEJCKFLAMGNDOHP"
+        ],
+        "output": [
+          "IJEKLFCMNGOPHDA"
+        ]
+      },
+      {
+        "input": [
+          "15",
+          "I",
+          "TEPCHFIAMLGDOKF",
+          "O",
+          "TPEHIFCMGLOFKDA"
+        ],
+        "output": [
+          "ACETPFHIDLMGKOF"
+        ]
+      },
+      {
+        "input": [
+          "14",
+          "P",
+          "KDFGSHTAEIBCLY",
+          "I",
+          "GFSDTHAKBICELY"
+        ],
+        "output": [
+          "GSFTAHDBCIYLEK"
+        ]
+      },
+      {
+        "input": [
+          "14",
+          "I",
+          "KBTICMGPAOEFDY",
+          "O",
+          "KBIMCTPOAFYDEG"
+        ],
+        "output": [
+          "GTBKCIMEAPODFY"
+        ]
+      },
+      {
+        "input": [
+          "14",
+          "P",
+          "ZMFGHCTEBPKAON",
+          "I",
+          "GFHMCTZPBKEOAN"
+        ],
+        "output": [
+          "GHFTCMPKBONAEZ"
+        ]
+      },
+      {
+        "input": [
+          "14",
+          "I",
+          "PAKEOBGDCHFXIY",
+          "O",
+          "PKAOGBEHCXYIFD"
+        ],
+        "output": [
+          "DEAPKBOGFCHIXY"
+        ]
+      },
+      {
+        "input": [
+          "7",
+          "P",
+          "ACEFDGH",
+          "I",
+          "ECFAGDH"
+        ],
+        "output": [
+          "EFCGHDA"
+        ]
+      },
+      {
+        "input": [
+          "7",
+          "I",
+          "BAHDCEF",
+          "O",
+          "BHACFED"
+        ],
+        "output": [
+          "DABHECF"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "P",
+          "CADFBK",
+          "I",
+          "DAFCKB"
+        ],
+        "output": [
+          "DFAKBC"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "I",
+          "BDACHE",
+          "O",
+          "BDCEHA"
+        ],
+        "output": [
+          "ADBHCE"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "P",
+          "ADKFBY",
+          "I",
+          "KDFABY"
+        ],
+        "output": [
+          "KFDYBA"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "I",
+          "CEAGDH",
+          "O",
+          "ECGHDA"
+        ],
+        "output": [
+          "ACEDGH"
+        ]
+      }
+    ]
+  },
+  "sampleCode": null
+}

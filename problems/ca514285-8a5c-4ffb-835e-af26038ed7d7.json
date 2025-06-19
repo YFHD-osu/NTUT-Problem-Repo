@@ -1,0 +1,147 @@
+{
+  "uuid": "ca514285-8a5c-4ffb-835e-af26038ed7d7",
+  "title": "005 判斷何種三角形",
+  "createDate": 1750301438549,
+  "collections": [
+    "0c60f8d2-0afe-41de-825c-683e04a370e6"
+  ],
+  "problem": [
+    "第一行輸入整數(int) a",
+    "第二行輸入整數(int) b",
+    "第三行輸入整數(int) c",
+    "範例輸入說明:",
+    "Sample Input:",
+    "10",
+    "10",
+    "15"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "4",
+          "1",
+          "1"
+        ],
+        "output": [
+          "Not Triangle"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "3",
+          "3"
+        ],
+        "output": [
+          "Equilateral Triangle",
+          "Isosceles Triangle",
+          "Acute Triangle"
+        ]
+      },
+      {
+        "input": [
+          "8",
+          "11",
+          "5"
+        ],
+        "output": [
+          "Obtuse Triangle"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "7",
+          "8"
+        ],
+        "output": [
+          "Acute Triangle"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "4",
+          "5"
+        ],
+        "output": [
+          "Right Triangle"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "5",
+          "8"
+        ],
+        "output": [
+          "Isosceles Triangle",
+          "Obtuse Triangle"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "6",
+          "5"
+        ],
+        "output": [
+          "Isosceles Triangle",
+          "Acute Triangle"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def getType(data: list):",
+    "  nums = sorted([data[0]**2, data[1]**2, data[2]**2])",
+    "",
+    "  if sum(nums[:2]) > nums[2]:",
+    "    return 1",
+    "  elif sum(nums[:2]) == nums[2]:",
+    "    return 0",
+    "  else:",
+    "    return -1",
+    "  ",
+    "def checkValid(data: list):",
+    "  data.sort()",
+    "  if sum(data[:2]) > data[2]:",
+    "    return True",
+    "",
+    "  return False",
+    "",
+    "def toSet(data: list):",
+    "  res = []",
+    "  for i in data:",
+    "    if i in res: continue",
+    "    res.append(i)",
+    "",
+    "  return res",
+    "",
+    "def main() -> None:",
+    "  data = [int(input()), int(input()), int(input())]",
+    "",
+    "  if (not checkValid(data)):",
+    "    print(\"Not Triangle\")",
+    "    return",
+    "",
+    "  if (len(toSet(data)) == 1):",
+    "    print(\"Equilateral Triangle\")",
+    "",
+    "  if (len(toSet(data)) <= 2):",
+    "    print(\"Isosceles Triangle\")",
+    "",
+    "  if (getType(data) < 0):",
+    "    print(\"Obtuse Triangle\")",
+    "  elif (getType(data) == 0):",
+    "    print(\"Right Triangle\")",
+    "  else:",
+    "    print(\"Acute Triangle\")",
+    "",
+    "  return",
+    "",
+    "main()"
+  ]
+}
