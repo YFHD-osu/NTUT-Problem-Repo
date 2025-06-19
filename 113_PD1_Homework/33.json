@@ -1,0 +1,123 @@
+{
+  "_comment": "Auto-generated from 033.py and 033.md",
+  "title": "33. 車牌號碼",
+  "createDate": 1750302596251,
+  "problem": [
+    "根據交通部2012年頒布的最新第8代自小客(貨)車牌，車牌規格為「三碼英文-四碼數字」",
+    "簡單規則如下:",
+    "1. 車牌號碼的字母部分必須是三個英文字母，並且不包含 I、O（因為容易與數字1、0混淆）。",
+    "2. 車牌號碼的數字部分必須是四個數字。",
+    "3. 車牌號碼的數字部分不能有4(因為諧音問題)",
+    "4.禁用英文碼:",
+    "不雅字(與fuck相近):",
+    "FUC,FUG,FUQ,FUT",
+    "國際共識(易聯想敏感組織):",
+    "GPU(前蘇俄特務機關),KGB(前蘇聯祕密警察),KKK(美國種族主義三k黨)",
+    "政黨組合(涉及國內政治型態) :",
+    "KMT(國民黨),DPP(民進黨)",
+    "動物系列(涉及動物保護議題):",
+    "PUG(哈巴狗),PUP(小動物),CAT(貓),ANT(螞蟻),APE(猿)",
+    "其他(涉及敏感詞彙):",
+    "MAD(瘋子),NUN(尼姑),SEX(不雅字),SLY(狡猾),BAD(壞),GAY(同志),",
+    "ASS(屁眼),BUM(無賴),BRA(胸罩),CRY(哭泣)",
+    "給定一個字串，按照規則判斷是否為合法車牌",
+    "【輸入說明】",
+    "第一行：輸入一個字串S",
+    "範例輸入說明:",
+    "Sample Input:",
+    "ABC-1231(字串S)",
+    "【輸出說明】",
+    "按照題目說明輸出是否是合法車牌",
+    "Sample Output:",
+    "ABC-1231 is Valid license plate number."
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "ABC-1231"
+        ],
+        "output": [
+          "ABC-1231 is Valid license plate number."
+        ]
+      },
+      {
+        "input": [
+          "LYX-6502"
+        ],
+        "output": [
+          "LYX-6502 is Valid license plate number."
+        ]
+      },
+      {
+        "input": [
+          "APE-5555"
+        ],
+        "output": [
+          "APE-5555 is Invalid license plate number."
+        ]
+      },
+      {
+        "input": [
+          "SSV-12598"
+        ],
+        "output": [
+          "SSV-12598 is Invalid license plate number."
+        ]
+      },
+      {
+        "input": [
+          "NQA-7641"
+        ],
+        "output": [
+          "NQA-7641 is Invalid license plate number."
+        ]
+      },
+      {
+        "input": [
+          "DPI-7931"
+        ],
+        "output": [
+          "DPI-7931 is Invalid license plate number."
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  ILLEGAL = [\"FUC\",\"FUG\",\"FUQ\",\"FUT\", \"GPU\", \"KGB\", \"KKK\", \"KMT\", \"DPP\", \"PUG\", \"PUP\", \"CAT\", \"ANT\", \"APE\", \"MAD\", \"NUN\", \"SEX\", \"SLY\", \"BAD\", \"GAY\", \"ASS\", \"BUM\", \"BRA\", \"CRY\"]",
+    "  ",
+    "  plate = input()",
+    "  ",
+    "  if len(plate) != 8:",
+    "    print(f\"{plate} is Invalid license plate number.\")",
+    "    return",
+    "",
+    "  if \"I\" in plate or \"O\" in plate or \"4\" in plate:",
+    "    print(f\"{plate} is Invalid license plate number.\")",
+    "    return",
+    "  ",
+    "  if False in [x.isalpha() for x in plate[:3]]:",
+    "    print(f\"{plate} is Invalid license plate number.\")",
+    "    return",
+    "  ",
+    "  if False in [x.isdigit() for x in plate[4:]]:",
+    "    print(f\"{plate} is Invalid license plate number.\")",
+    "    return",
+    "  ",
+    "  if plate[3] != \"-\":",
+    "    print(f\"{plate} is Invalid license plate number.\")",
+    "    return",
+    "  ",
+    "  if plate[:3] in ILLEGAL:",
+    "    print(f\"{plate} is Invalid license plate number.\")",
+    "    return",
+    "  ",
+    "  print(f\"{plate} is Valid license plate number.\")",
+    "",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

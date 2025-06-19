@@ -1,12 +1,19 @@
 {
   "_comment": "Auto-generated from 012.py and 012.md",
-  "title": "012 數質數",
-  "createDate": 1750301438545,
+  "title": "12. 數質數",
+  "createDate": 1750302596247,
   "problem": [
+    "給定一個整數串列nums，輸出nums中有哪些是質數，並從小到大排序，若沒有質數，則輸出No prime number。",
+    "【輸入說明】",
     "第一行，輸入N個整數代表串列nums中的元素，N>=2，整數中間以空白隔開。",
     "範例輸入說明:",
     "Sample Input:",
-    "1 13 4 8 5 6 17"
+    "1 13 4 8 5 6 17",
+    "【輸出說明】",
+    "輸出一個串列，為nums中的所有質數，並從小到大排序，若沒有質數，則輸出No prime number。",
+    "範例輸出說明:",
+    "Sample Output:",
+    "[5, 13, 17] (5 13 17為nums中的質數，且5<13<17)"
   ],
   "testcase": {
     "codeType": 0,
