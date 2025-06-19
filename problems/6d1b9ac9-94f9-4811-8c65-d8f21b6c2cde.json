@@ -1,0 +1,87 @@
+{
+  "uuid": "6d1b9ac9-94f9-4811-8c65-d8f21b6c2cde",
+  "title": "3. 總成績及平均計算",
+  "createDate": 1750302596246,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "某一學生修國文、計算機概論、計算機程式設計三科,使用者輸入名字(string)、學號(int)、三科成績(int)。",
+    "請計算學生總成績、平均，並使用 format 輸出名字、學號、總成績、平均。",
+    "【輸入說明】",
+    "第一行，輸入學生名字(string)",
+    "第二行，輸入學生學號(int)",
+    "第三行，輸入學生國文成績(int)",
+    "第四行，輸入學生計算機概論成績(int)",
+    "第五行，輸入學生計算機程式設計成績(int)",
+    "(三個成績輸入>=0)",
+    "範例輸入說明:",
+    "Sample Input:",
+    "Tom",
+    "11259001",
+    "90",
+    "80",
+    "100",
+    "【輸出說明】",
+    "第一行輸出 Name:學生名字",
+    "第二行輸出 Id:學生學號",
+    "第三行輸出 Total:學生三科成績之總分",
+    "第四行輸出 Average:學生三科成績之平均 (保留整數即可)",
+    "範例輸出說明:",
+    "Name:Tom",
+    "Id:11259001",
+    "Total:270",
+    "Average:90"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "Tom",
+          "905067",
+          "100",
+          "100",
+          "100"
+        ],
+        "output": [
+          "Name:Tom",
+          "Id:905067",
+          "Total:300",
+          "Average:100"
+        ]
+      },
+      {
+        "input": [
+          "Ray",
+          "106590035",
+          "99",
+          "90",
+          "82"
+        ],
+        "output": [
+          "Name:Ray",
+          "Id:106590035",
+          "Total:271",
+          "Average:90"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  name = input()",
+    "  studentId = input()",
+    "  chinese = int(input())",
+    "  ccTheory = int(input())",
+    "  ccProgram = int(input())",
+    "  ",
+    "  print(\"Name:%s\"%(name))",
+    "  print(\"Id:%s\"%(studentId))",
+    "  print(\"Total:%s\"%(chinese + ccTheory + ccProgram))",
+    "  print(\"Average:%.0f\"%((chinese + ccTheory + ccProgram) / 3))",
+    "",
+    "if __name__ == \"__main__\": ",
+    "  main()"
+  ]
+}

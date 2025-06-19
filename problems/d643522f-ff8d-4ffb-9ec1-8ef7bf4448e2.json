@@ -1,0 +1,155 @@
+{
+  "uuid": "d643522f-ff8d-4ffb-9ec1-8ef7bf4448e2",
+  "title": "23. 簡易抽鬼牌",
+  "createDate": 1750302596249,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "兩位玩家和一台電腦進行抽鬼牌遊戲，遊戲開始時每位玩家從遊戲牌中取得5張牌(不得重複)，電腦為4張牌+鬼牌，進行一輪抽牌後，輸出手牌情況。",
+    "遊戲牌：H2~H8 (紅心2~8)、C2~C8 (梅花2~8)",
+    "【遊戲規則】",
+    "抽鬼牌規則為手上有相同數字的牌要被丟棄掉，第一輪抽牌為玩家1抽玩家2的牌，第二輪為玩家2抽電腦的牌，第三輪為電腦抽玩家1的牌。",
+    "注意事項：",
+    "玩家需對最初拿到的5張手牌進行整理(丟棄數字相同的牌)，以及每次抽牌後都要立即進行整理。若後續抽牌時，該名玩家手上已無此牌，則在最後結束輸出Error。",
+    "【輸入說明】",
+    "第一行輸入玩家1的5張手牌",
+    "第二行輸入玩家2的5張手牌",
+    "第三行輸入電腦的4張手牌+鬼牌(鬼牌固定為最後一張)",
+    "第四行輸入玩家1抽玩家2的牌",
+    "第五行輸入玩家2抽電腦的牌",
+    "第六行輸入電腦抽玩家1的牌",
+    "範例輸入說明:",
+    "Sample Input:",
+    "H2 H3 H4 C4 C5",
+    "H5 H6 C3 C6 C7",
+    "H7 H8 C2 C8 Joker",
+    "C7",
+    "Joker",
+    "H2",
+    "【輸出說明】",
+    "若在抽牌過程中遇到錯誤，輸出Error，否則依序輸出每位玩家手牌結果，牌的輸出順序依照取得的先後順序。",
+    "遊戲流程(以上方輸入為例)：",
+    "一開始三位玩家整理手牌",
+    "P1整理後手牌：H2、H3、C5",
+    "P2整理後手牌：H5、C3、C7",
+    "電腦整理後手牌：H7、C2、Joker",
+    "第一輪 C7：P1抽完後變為：H2、H3、C5、C7，且P2變為：H5、C3",
+    "第二輪 Joker：P2抽完後變為：H5、C3、Joker，且電腦變為：H7、C2",
+    "第三輪 H2：電腦抽完後變為：H7，且P1變為：H3、C5、C7",
+    "最終P1手牌為：H3、C5、C7，P2手牌為：H5、C3、Joker，電腦手牌為：H7",
+    "範例輸出說明:",
+    "H3 C5 C7",
+    "H5 C3 Joker",
+    "H7"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "H2 H3 H4 C4 C5",
+          "H5 H6 C3 C6 C7",
+          "H7 H8 C2 C8 Joker",
+          "C3",
+          "C2",
+          "H3"
+        ],
+        "output": [
+          "Error"
+        ]
+      },
+      {
+        "input": [
+          "H2 H3 H4 C3 C4",
+          "C2 C5 C6 C7 C8",
+          "H5 H6 H7 H8 Joker",
+          "C2",
+          "H6",
+          "H2"
+        ],
+        "output": [
+          "Error"
+        ]
+      },
+      {
+        "input": [
+          "H2 H3 H4 C4 C5",
+          "H5 H6 C3 C6 C7",
+          "H7 H8 C2 C8 Joker",
+          "C3",
+          "H7",
+          "C5"
+        ],
+        "output": [
+          "H2",
+          "H5",
+          "C2 Joker C5"
+        ]
+      },
+      {
+        "input": [
+          "C3 C4 C7 C8 H4",
+          "C2 C6 H2 H6 H7",
+          "C5 H3 H5 H8 Joker",
+          "H7",
+          "H3",
+          "C3"
+        ],
+        "output": [
+          "C8",
+          "H3",
+          "H8 Joker C3"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  cards = [",
+    "    tidy(input().split()),",
+    "    tidy(input().split()),",
+    "    tidy(input().split()),",
+    "  ]",
+    "",
+    "  operation = [input(), input(), input()]",
+    "  ",
+    "  result = play(cards, operation)",
+    "  ",
+    "  for i in result:",
+    "    print(\" \".join(i))",
+    "",
+    "def play(cards: list, operation: list, depth: int = 0) -> list:",
+    "  if depth > 2:",
+    "    return cards",
+    "  ",
+    "  this = cards[depth]",
+    "  that = cards[depth+1 if depth < 2 else 0]",
+    "",
+    "  opCard = operation[depth]",
+    "",
+    "  if opCard not in that:",
+    "    print(\"Error\")",
+    "    return []",
+    "  ",
+    "  that.remove(opCard)",
+    "  this.append(opCard)",
+    "",
+    "  tidy(this)",
+    "",
+    "  return play(cards, operation, depth+1)",
+    "",
+    "def tidy(cards: list) -> list:",
+    "  offset = 0",
+    "  numbers = list(map(lambda e: e[-1], cards))",
+    "  for i in range(len(numbers)):",
+    "    if numbers.count(numbers[i]) > 1:",
+    "      cards.pop(i-offset)",
+    "      offset += 1",
+    "",
+    "  return cards ",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

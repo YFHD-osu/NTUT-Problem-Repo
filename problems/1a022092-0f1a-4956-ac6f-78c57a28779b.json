@@ -1,0 +1,123 @@
+{
+  "uuid": "1a022092-0f1a-4956-ac6f-78c57a28779b",
+  "title": "19. 地雷矩陣",
+  "createDate": 1750302596248,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "輸入為正整數N表示N*N的地雷矩陣X，接著輸入矩陣的元素值(0或1)，每一行有N個值，以空白分隔。其中1代表有地雷，0代表無地雷。",
+    "輸出一個N*N的地雷資訊矩陣Y，其中每個值代表該格其周圍八格的地雷數量，若該格有地雷則不計周圍地雷數量，一律設定其值為0。",
+    "【輸入說明】",
+    "第一行：輸入一個正整數N，代表矩陣大小。",
+    "接著有N行輸入，每一行都有N個值，以0 或 1 表示，1代表地雷，0代表無地雷。",
+    "範例輸入說明:",
+    "Sample Input:",
+    "3",
+    "0 1 0",
+    "0 0 0",
+    "1 0 1",
+    "【輸出說明】",
+    "輸出N*N的矩陣，其中每個值表示該格周圍8格的地雷數量，若該格為地雷，則用0表示。",
+    "範例輸出說明:",
+    "Sample Output:",
+    "1 0 1",
+    "2 3 2",
+    "0 2 0"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "4",
+          "0 1 0 0",
+          "1 0 1 0",
+          "0 1 0 1",
+          "0 0 1 0"
+        ],
+        "output": [
+          "2 0 2 1",
+          "0 4 0 2",
+          "2 0 4 0",
+          "1 2 0 2"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "0 0 1 0 0",
+          "1 0 0 0 1",
+          "0 1 0 1 0",
+          "1 0 0 0 1",
+          "0 0 1 0 0"
+        ],
+        "output": [
+          "1 2 0 2 1",
+          "0 3 3 3 0",
+          "3 0 2 0 3",
+          "0 3 3 3 0",
+          "1 2 0 2 1"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "1 0",
+          "0 1"
+        ],
+        "output": [
+          "0 2",
+          "2 0"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "1 1 1 1",
+          "1 0 0 1",
+          "1 0 0 1",
+          "1 1 1 1"
+        ],
+        "output": [
+          "0 0 0 0",
+          "0 5 5 0",
+          "0 5 5 0",
+          "0 0 0 0"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  N = int(input())",
+    "  data = inputMatrix(N)",
+    "",
+    "  for r in range(N):",
+    "    for c in range(N):",
+    "      if data[r][c] == 0:",
+    "        print(count(r, c, data), end=\" \" if c != N-1 else \"\\n\")",
+    "      else:",
+    "        print(\"0\", end=(\" \" if c != N-1 else \"\\n\"))",
+    "",
+    "def inputMatrix(n: int) -> list:",
+    "  res = []",
+    "  for _ in range(n):",
+    "    res.append([int(i) for i in input().split()])",
+    "  ",
+    "  return res",
+    "",
+    "def count(row: int, column: int, data: list):",
+    "  num = 0",
+    "  for r in range(row-1, row+2):",
+    "    for c in range(column-1, column+2):",
+    "      if r < 0 or r >= len(data): continue",
+    "      if c < 0 or c >= len(data): continue",
+    "      if data[r][c]: num += 1",
+    "",
+    "  return num",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

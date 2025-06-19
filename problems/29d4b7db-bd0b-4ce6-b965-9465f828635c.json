@@ -1,0 +1,155 @@
+{
+  "uuid": "29d4b7db-bd0b-4ce6-b965-9465f828635c",
+  "title": "8. 撲克牌",
+  "createDate": 1750302596247,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "撲克牌的牌面符號A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K，對應的點數：",
+    "A~10 點數為 1~10，J, Q, K點數為0.5。",
+    "X,Y兩位玩家，各發三張撲克牌，加總點數越接近10.5的贏，總點數超過 10.5 (不含10.5) 點數變為 0，如果最終總點數相同，則視為雙方平手。",
+    "請輸出X,Y兩位玩家的點數，並判斷贏家為X或Y或平手(Tie)。",
+    "【輸入說明】",
+    "第一 ~ 三行，輸入玩家X的三張撲克牌",
+    "第四 ~ 六行，輸入玩家Y的三張撲克牌",
+    "範例輸入說明:",
+    "Sample Input:",
+    "5",
+    "J",
+    "6",
+    "3",
+    "A",
+    "2",
+    "【輸出說明】",
+    "第一行輸出玩家X總點數(若總點數超過10.5 (不含10.5)，點數變為 0)",
+    "第二行輸出玩家Y總點數(若總點數超過10.5 (不含10.5)，點數變為 0)",
+    "第三行判斷贏家並輸出「勝利者 Win」，若雙方平手則輸出Tie",
+    "範例輸出說明:",
+    "0",
+    "6",
+    "Y Win"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "A",
+          "6",
+          "J",
+          "5",
+          "2",
+          "J"
+        ],
+        "output": [
+          "7.5",
+          "7.5",
+          "Tie"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "4",
+          "Q",
+          "A",
+          "2",
+          "7"
+        ],
+        "output": [
+          "10.5",
+          "10",
+          "X Win"
+        ]
+      },
+      {
+        "input": [
+          "J",
+          "A",
+          "K",
+          "A",
+          "A",
+          "Q"
+        ],
+        "output": [
+          "2",
+          "2.5",
+          "Y Win"
+        ]
+      },
+      {
+        "input": [
+          "A",
+          "4",
+          "2",
+          "5",
+          "8",
+          "3"
+        ],
+        "output": [
+          "7",
+          "0",
+          "X Win"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "7",
+          "A",
+          "K",
+          "4",
+          "7"
+        ],
+        "output": [
+          "0",
+          "0",
+          "Tie"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "_cards = [\"A\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"]",
+    "",
+    "def fetchPoints(val: str) -> float:",
+    "  if val in _cards:",
+    "    return _cards.index(val) + 1",
+    "",
+    "  return .5",
+    "",
+    "def correctPoint(val: float) -> float:",
+    "  return 0 if val > 10.5 else val",
+    "",
+    "def fixDisplay(val: float):",
+    "  if isinstance(val, int):",
+    "    return val",
+    "  ",
+    "  if not val * 10 % 10:",
+    "    return int(val)",
+    "  ",
+    "  return val",
+    "",
+    "def main() -> None:",
+    "  X = [input(), input(), input()]",
+    "  Y = [input(), input(), input()]",
+    "",
+    "  xPoints = correctPoint(sum(map(fetchPoints, X)))",
+    "  yPoints = correctPoint(sum(map(fetchPoints, Y)))",
+    "",
+    "  print(fixDisplay(xPoints))",
+    "  print(fixDisplay(yPoints))",
+    "  if abs(10.5 - xPoints) < abs(10.5 - yPoints):",
+    "    print(\"X Win\")",
+    "  elif xPoints == yPoints:",
+    "    print(\"Tie\")",
+    "  else:",
+    "    print(\"Y Win\")",
+    "  ",
+    "  return",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

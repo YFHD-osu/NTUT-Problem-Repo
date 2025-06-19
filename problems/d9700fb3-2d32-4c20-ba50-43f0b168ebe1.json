@@ -1,0 +1,152 @@
+{
+  "uuid": "d9700fb3-2d32-4c20-ba50-43f0b168ebe1",
+  "title": "28. 賓果遊戲",
+  "createDate": 1750302596250,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "A和B兩位玩家玩賓果遊戲,每位玩家各自輸入一個 N×N的矩陣，數字從 1~N×N，請寫一個程式幫忙判斷哪位玩家勝出或平手",
+    "【輸入說明】",
+    "第一行：輸入N (3<=N<=6)，代表一個N×N的矩陣",
+    "第二行：輸入M (N<=M<=N×N)，代表有M個被圈起來的數字數量",
+    "第三行：輸入一行字串，代表玩家A的N×N的矩陣數字以及數字的位置，每個數字以空白隔開，每個數字從左而右、從上而下，填入矩陣",
+    "第四行：輸入一行字串，代表玩家B的N×N的矩陣數字以及數字的位置，每個數字以空白隔開，每個數字從左而右、從上而下，填入矩陣",
+    "第五行：輸入一行字串，代表被圈起來的數字，每個數字以空白隔開",
+    "範例輸入說明:",
+    "3 (代表N=3，A和B的矩陣大小為3×3)",
+    "4 (代表M=4，有四個號碼被圈選起來)",
+    "6 1 8 4 7 2 5 9 3 (A的矩陣，依照從左而右、從上而下的順序被填入數字6、1、8、4、7、2、5、9、3)",
+    "9 6 4 5 1 8 2 7 3 (B的矩陣，依照從左而右、從上而下的順序被填入數字9、6、4、5、1、8、2、7、3)",
+    "6 1 8 3 (A和B的矩陣中，數字6、1、8、3被圈選起來)",
+    "【輸出說明】",
+    "第一行：輸出誰達成的連線最多，輸出誰贏，假如A贏，輸出A Win(中間以空白隔開)，假如B贏，輸出B Win(中間以空白隔開)，此外平手的話，輸出Tie",
+    "連線規則：某一直行或橫排或斜線完全被圈選起來，即可被算做達成一條線",
+    "範例輸出說明:",
+    "A Win (A連成一條線，B則沒有連成任何一條線，所以A贏)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "3",
+          "4",
+          "1 2 3 4 5 6 7 8 9",
+          "1 2 5 3 7 9 4 8 6",
+          "3 7 1 2"
+        ],
+        "output": [
+          "A Win"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "7",
+          "1 9 7 8 10 2 11 12 13 5 3 6 14 16 15 4",
+          "10 8 11 5 13 1 2 16 15 6 3 14 7 9 4 12",
+          "10 11 13 5 6 14 4"
+        ],
+        "output": [
+          "Tie"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "9",
+          "1 17 7 6 16 20 2 21 15 14 8 18 3 13 24 9 19 23 4 22 10 11 12 25 5",
+          "1 15 13 14 10 2 6 17 11 16 3 19 7 20 18 4 5 21 8 24 12 22 23 25 9",
+          "12 4 5 3 2 1 10 11 7"
+        ],
+        "output": [
+          "B Win"
+        ]
+      },
+      {
+        "input": [
+          "6",
+          "16",
+          "1 33 10 11 21 22 2 32 31 12 20 23 3 4 5 13 25 24 15 14 26 6 34 30 16 28 27 36 7 8 17 18 29 35 19 9",
+          "13 29 14 7 1 16 28 30 15 8 2 17 12 35 33 3 20 19 11 34 4 24 9 26 23 5 21 25 10 27 6 31 36 22 32 18",
+          "13 1 30 8 2 33 20 11 24 9 22 32 18 10 21 23"
+        ],
+        "output": [
+          "Tie"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def checkLines(data: list, marked: list) -> int:",
+    "  count = 0",
+    "",
+    "  for row in range(len(data)):",
+    "    flag = True",
+    "",
+    "    for column in range(len(data)):",
+    "      if data[row][column] in marked:",
+    "        continue",
+    "      flag = False",
+    "    ",
+    "    if flag: ",
+    "      count += 1",
+    "  ",
+    "  ",
+    "  for column in range(len(data)):",
+    "    flag = True",
+    "",
+    "    for row in range(len(data)):",
+    "      if data[row][column] in marked:",
+    "        continue",
+    "      flag = False",
+    "    ",
+    "    if flag: count += 1",
+    "",
+    "  flag = True",
+    "  for n in range(len(data)):",
+    "    if data[n][n] in marked:",
+    "      continue",
+    "    flag = False",
+    "  ",
+    "  if flag: count += 1",
+    "",
+    "  flag = True",
+    "  for n in range(len(data)):",
+    "    if data[n][len(data)-1-n] in marked:",
+    "      continue",
+    "    flag = False",
+    "  ",
+    "  if flag: count += 1",
+    "",
+    "  return count",
+    "",
+    "def main() -> None:",
+    "  N = int(input())",
+    "  _ = input()",
+    "",
+    "  aData = input().split()",
+    "  A = [[aData[r*N+c] for c in range(N)] for r in range(N)]",
+    "",
+    "  bData = input().split()",
+    "  B = [[bData[r*N+c] for c in range(N)] for r in range(N)]",
+    "  ",
+    "  marked = input().split()",
+    "",
+    "  aPts = checkLines(A, marked)",
+    "  bPts = checkLines(B, marked)",
+    "",
+    "  if aPts == bPts:",
+    "    print(\"Tie\") ",
+    "  elif aPts > bPts:",
+    "    print(\"A Win\")",
+    "  else:",
+    "    print(\"B Win\")",
+    "",
+    "  return",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

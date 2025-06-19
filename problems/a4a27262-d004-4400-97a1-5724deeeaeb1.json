@@ -1,0 +1,152 @@
+{
+  "uuid": "a4a27262-d004-4400-97a1-5724deeeaeb1",
+  "title": "12. 反轉字串",
+  "createDate": 1742831940000,
+  "collections": [
+    "eb097620-6eca-4b6b-9bc3-f7adb2b5e94d"
+  ],
+  "problem": [
+    "※函式傳遞參數須使用指標",
+    "",
+    "輸入格式",
+    "1.輸入兩個字串（字串長度不固定，允許包含空格）。",
+    "2.字串的開頭與結尾只能是英文字母（a-z, A-Z）或底線 (‘_’)，否則輸出 Error 並立即結束程式。",
+    "若字串符合格式，則執行以下操作：",
+    "反轉字串。",
+    "輸出反轉後的字串。",
+    "忽略字串中的空白字元，比較兩個字串的實際長度（不計空格）。",
+    "輸出長度較長的字串的原始輸入值（即未反轉前的內容）。",
+    "若兩個字串長度相同，則輸出第一個字串的原始值。",
+    "",
+    "",
+    "【輸入說明】",
+    "第一行:第一個字串",
+    "第二行:第二個字串",
+    "",
+    "範例輸入:",
+    "Hello World",
+    "C programming",
+    "",
+    "【輸出說明】",
+    "第一行:第一個字串的反轉",
+    "第二行:第二個字串的反轉",
+    "第三行:不計空白字元的最長原始字串",
+    "",
+    "範例輸出:",
+    "dlroW olleH",
+    "gnimmargorp C",
+    "C programming"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "Hello World_",
+          "C programming"
+        ],
+        "output": [
+          "_dlroW olleH",
+          "gnimmargorp C",
+          "C programming"
+        ]
+      },
+      {
+        "input": [
+          "abcdef",
+          "123 456"
+        ],
+        "output": [
+          "Error"
+        ]
+      },
+      {
+        "input": [
+          "A B C D",
+          "ABCD"
+        ],
+        "output": [
+          "D C B A",
+          "DCBA",
+          "A B C D"
+        ]
+      },
+      {
+        "input": [
+          "a@!# $%^",
+          "1234"
+        ],
+        "output": [
+          "Error"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "#include <stdio.h>",
+    "",
+    "int length(char (*s)[], int calcSpace);",
+    "short isValid(char s);",
+    "void revPrint(char (*s)[]);",
+    "",
+    "int main() {",
+    "  char a[100], b[100];",
+    "",
+    "  scanf(\" %[^\\n]\", &a);",
+    "  getchar();",
+    "",
+    "  scanf(\" %[^\\n]\", &b);",
+    "  getchar();",
+    "",
+    "  int aLength = length(&a, 1);",
+    "  int bLength = length(&b, 1);",
+    "",
+    "  if (!( isValid(a[0]) && isValid(b[0]) && isValid(a[aLength-1]) && isValid(b[bLength-1]) )) {",
+    "    printf(\"Error\");",
+    "    return 0;",
+    "  }",
+    "",
+    "  revPrint(&a);",
+    "  revPrint(&b);",
+    "",
+    "  printf(\"%s\\n\", ( length(&a, 0) >= length(&b, 0) ) ? a : b);",
+    "",
+    "}",
+    "",
+    "int length(char (*s)[], int calcSpace) {",
+    "  int index = 0;",
+    "  unsigned int sum = 0;",
+    "",
+    "  while ((*s)[index] != '\\0') {",
+    "    if ((*s)[index] == ' ' && !calcSpace) {",
+    "      index++;",
+    "      continue;  ",
+    "    }",
+    "",
+    "    sum++;",
+    "    index++;",
+    "  }",
+    "",
+    "  return sum;",
+    "}",
+    "",
+    "short isValid(char s) {",
+    "  return (",
+    "    s >= 'a' && s <= 'z' ||",
+    "    s >= 'A' && s <= 'Z' ||",
+    "    s == '_'",
+    "  ) ;",
+    "}",
+    "",
+    "void revPrint(char (*s)[]) {",
+    "  int index = length(s, 1);",
+    "",
+    "  while (index > 0) {",
+    "    index--;",
+    "    printf(\"%c\", (*s)[index]);",
+    "  }",
+    "",
+    "  printf(\"\\n\");",
+    "}"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "uuid": "f2b949b3-0d10-4e57-91f4-71e33c35b059",
+  "title": "27. 電腦猜數字",
+  "createDate": 1750302596250,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "電腦猜數字遊戲規則",
+    "使用者輸入謎底數字（謎底由0~9組成五碼且不重複），由程式進行猜測",
+    "程式每猜一個數，需自動根據這個數字給出提示，提示以XAYB形式呈現",
+    "接著根據提示決定下一個猜測的數字，直到猜中為止",
+    "其中X表示位置正確的數的個數，而Y表示數字正確而位置不對的數的個數",
+    "【輸入說明】",
+    "輸入謎底數字",
+    "範例輸入：",
+    "56312",
+    "【輸出說明】",
+    "電腦猜到答案後（5A0B），輸出答案",
+    "範例輸出：",
+    "56312",
+    "※注意：禁止讀取input謎底後直接輸出，必須經由程式持續猜測及判斷，直到猜中後輸出答案。",
+    "以上方輸入為例，程式進行猜測與判斷之過程為：",
+    "程式猜測數字：01234",
+    "程式根據謎底判斷：0A3B",
+    "程式猜測數字：10356",
+    "程式根據謎底判斷：1A3B",
+    "程式猜測數字：12065",
+    "程式根據謎底判斷：0A4B",
+    "程式猜測數字：23506",
+    "程式根據謎底判斷：0A4B",
+    "程式猜測數字：36152",
+    "程式根據謎底判斷：2A3B",
+    "程式猜測數字：56312",
+    "程式根據謎底判斷：5A0B"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "12345"
+        ],
+        "output": [
+          "12345"
+        ]
+      },
+      {
+        "input": [
+          "13254"
+        ],
+        "output": [
+          "13254"
+        ]
+      },
+      {
+        "input": [
+          "90786"
+        ],
+        "output": [
+          "90786"
+        ]
+      },
+      {
+        "input": [
+          "85643"
+        ],
+        "output": [
+          "85643"
+        ]
+      },
+      {
+        "input": [
+          "28901"
+        ],
+        "output": [
+          "28901"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def generate(s: str, M: int, result: str = \"\") -> str:  ",
+    "  if M == 0:",
+    "    return [result]",
+    "  ",
+    "  ret = []",
+    "",
+    "  for i in range(len(s)):",
+    "    ret.extend(generate(f\"{s[:i]}{s[i+1:]}\", M-1, f\"{result}{s[i]}\"))",
+    "  ",
+    "  return ret",
+    "",
+    "def match(s1: str, s2: str) -> tuple:",
+    "  a = 0",
+    "  b = 0",
+    "  for i in range(5):",
+    "    if s1[i] == s2[i]:",
+    "      a += 1",
+    "      continue",
+    "    ",
+    "    b += s2.count(s1[i])",
+    "  ",
+    "  return a, b",
+    "",
+    "def makeResp(answer: str, guess: str):",
+    "  A = 0",
+    "  B = 0",
+    "  for i in range(len(answer)):",
+    "    if answer[i] == guess[i]:",
+    "      A += 1",
+    "      continue",
+    "",
+    "    B += answer.count(guess[i])",
+    "",
+    "  return f\"{A}A{B}B\"",
+    "",
+    "def main() -> None:",
+    "  possibility = generate(\"0123456789\", 5)",
+    "",
+    "  answer = input()",
+    "",
+    "  count = 0",
+    "  guess = \"70312\"",
+    "  while 1:",
+    "    resp = makeResp(answer, guess)",
+    "    a, b = int(resp[0]), int(resp[2])",
+    "",
+    "    if a == 5:",
+    "      print(guess)",
+    "      return",
+    "    ",
+    "    possibility = [x for x in possibility if match(guess, x) == (a,b)]",
+    "    guess = possibility[0]",
+    "    count += 1",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

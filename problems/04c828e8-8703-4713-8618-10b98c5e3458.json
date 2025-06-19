@@ -1,0 +1,186 @@
+{
+  "uuid": "04c828e8-8703-4713-8618-10b98c5e3458",
+  "title": "35. 帳號密碼驗證",
+  "createDate": 1750302596251,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "有一個系統，在註冊帳號密碼時需驗證帳號真實性及密碼強度，",
+    "帳號為個人身份證字號並檢查合法，密碼依照規則計算強度後需大於(包含)30，才符合系統要求",
+    "身份證合法規則如下：",
+    "身份證字號共10碼，",
+    "第一碼：區域碼，需為大寫英文字母，其對應數值如下表",
+    "| 第一位英文字母 | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |",
+    "| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |",
+    "| 對應數值 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 34 | 18 | 19 | 29 | 21 | 22 | 35 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 32 | 30 | 31 | 33",
+    "第二碼：性別碼，需為數字，男生是1，女生是2",
+    "第三~九碼：流水號碼",
+    "第十碼：檢查碼",
+    "檢查方法步驟：",
+    "1.找出第一位英文字母的對應數值，將英文字轉換成對應值後，產生一個11位數字的數列",
+    "2.將此數列前十碼依序乘以1、9、8、7、6、5、4、3、2、1後加總",
+    "3.將加總後的值除以模數10取其餘數",
+    "4.由模數減去餘數得檢查碼，若餘數為0時，則設定其檢查碼為0",
+    "5.前一步驟得到檢查碼需於第十碼檢查碼相符，即為合法身份證字號",
+    "以B120667503為例：",
+    "1.B的對應數值為11，得到數列11120667503",
+    "2.（1 × 1）＋（1 × 9）＋（1 × 8）＋（2 × 7）＋（0 × 6）＋（6 × 5）＋（6 × 4）＋（7 × 3）＋（5 × 2）＋（0 × 1）= 117",
+    "3.117除以10得到餘數7",
+    "4.10–7=3",
+    "5.與第十碼檢查碼3相同，驗證為合法身份證字號",
+    "密碼強度計算規則如下：",
+    "1.A個英文字母小寫加A分",
+    "2.B個英文字母大寫加3*B分",
+    "3.C個數字加2*C分",
+    "4.D個特殊符號{ ~!@#$%^&*<>_+=}加5*D分",
+    "5.有五個以上(包含)數字且任兩個數字在密碼中的位置不相鄰，例如：「9a9a9a9a9」，加15分",
+    "【輸入說明】",
+    "第一行：輸入帳號，即身份證字號",
+    "第二行：輸入密碼",
+    "範例輸入：",
+    "A123456789",
+    "abc",
+    "【輸出說明】",
+    "第一行：輸出身份證字號是否合法",
+    "區域碼不合法輸出：Wrong area code",
+    "性別碼不為0或1輸出：Wrong gender code",
+    "檢查碼不合法輸出：Illegal",
+    "合法輸出：Pass",
+    "第二行：輸出密碼強度，若強度不足則提示：Not strong enough",
+    "範例輸出：",
+    "Pass",
+    "3 Not strong enough"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "a100133406",
+          "0a1a2a3a4a5"
+        ],
+        "output": [
+          "Wrong area code",
+          "32"
+        ]
+      },
+      {
+        "input": [
+          "O512865768",
+          "!a@b#c$d"
+        ],
+        "output": [
+          "Wrong gender code",
+          "24 Not strong enough"
+        ]
+      },
+      {
+        "input": [
+          "T115364658",
+          "assdAsas8"
+        ],
+        "output": [
+          "Illegal",
+          "12 Not strong enough"
+        ]
+      },
+      {
+        "input": [
+          "L211216230",
+          "abSDSD123BCD!"
+        ],
+        "output": [
+          "Pass",
+          "34"
+        ]
+      },
+      {
+        "input": [
+          "Q216147841",
+          "ekr^*g155"
+        ],
+        "output": [
+          "Pass",
+          "20 Not strong enough"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  identy = input()",
+    "  passwd = input()",
+    "",
+    "  print(identVaild(identy))",
+    "",
+    "  score = fetchPasswdScore(passwd)",
+    "  if score >= 30:",
+    "    print(score)",
+    "  else:",
+    "    print(f\"{score} Not strong enough\")",
+    "",
+    "def identNum(a: str) -> int:",
+    "  corr = {",
+    "    'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15,",
+    "    'G': 16, 'H': 17, 'I': 34, 'J': 18, 'K': 19, 'L': 20,",
+    "    'M': 21, 'N': 22, 'O': 35, 'P': 23, 'Q': 24, 'R': 25,",
+    "    'S': 26, 'T': 27, 'U': 28, 'V': 29, 'W': 32, 'X': 30,",
+    "    'Y': 31, 'Z': 33",
+    "  }",
+    "",
+    "  return corr.get(a, 0)",
+    "",
+    "def identVaild(a: str) -> str:",
+    "  if not a[0].isupper():",
+    "    return \"Wrong area code\"",
+    "  ",
+    "  if not a[1] in ['2', '1']:",
+    "    return \"Wrong gender code\" ",
+    "  ",
+    "  if (10 - (identSum(a) % 10)) != int(a[-1]) and (identSum(a) % 10) != 0:",
+    "    return \"Illegal\"",
+    "  ",
+    "  if  (identSum(a) % 10) == 0 and (identSum(a) % 10) != int(a[-1]):",
+    "    return \"Illegal\"",
+    "",
+    "  return \"Pass\"",
+    "",
+    "def identSum(a: str) -> int:",
+    "  a = str(identNum(a[0])) + a[1:-1]",
+    "",
+    "  result = 0",
+    "  for i in zip([1, 9, 8, 7, 6, 5, 4 ,3 ,2, 1], a):",
+    "    result += i[0] * int(i[1])",
+    "",
+    "  return result",
+    "",
+    "def fetchPasswdScore(a: str):",
+    "  score = 0",
+    "",
+    "  score += len(list(filter(lambda e: e.islower(), a)))",
+    "  score += len(list(filter(lambda e: e.isupper(), a))) * 3",
+    "  score += len(list(filter(lambda e: e.isdigit(), a))) * 2",
+    "  score += len(list(filter(lambda e: e in '{ ~!@#$%^&*<>_+=}', a))) * 5",
+    "  score += extraScore(a)",
+    "  ",
+    "  return score",
+    "",
+    "def extraScore(a: str) -> int:",
+    "  if len(list(filter(lambda e: e.isdigit(), a))) < 5:",
+    "    return 0",
+    "  ",
+    "  index = 1",
+    "  count = 1 if a[0].isdigit() else 0",
+    "  while (index < len(a)):",
+    "    if (not a[index-1].isdigit()) and a[index].isdigit():",
+    "      count += 1",
+    "    index += 1",
+    "  ",
+    "  return 15 if count > 1 else 0",
+    "  ",
+    "if __name__ == \"__main__\":",
+    "  # print(extraScore(\"0a1a2a3a4a5\"))",
+    "  main()"
+  ]
+}

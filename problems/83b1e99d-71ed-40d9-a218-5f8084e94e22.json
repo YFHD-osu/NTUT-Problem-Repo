@@ -1,0 +1,109 @@
+{
+  "uuid": "83b1e99d-71ed-40d9-a218-5f8084e94e22",
+  "title": "13. 印數字菱形",
+  "createDate": 1750302596247,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "給定一個整數 n，輸出大小為n且由數字組成的菱形，數字的間隔為2，N大於0，若N小於等於0則輸出Error，菱形左方由'*'補上。",
+    "【輸入說明】",
+    "第一行，輸入一個整數N，1",
+    "範例輸入說明:",
+    "Sample Input:",
+    "3(整數N)",
+    "【輸出說明】",
+    "左方為'*'，中間為數字間隔為2的數字菱形，兩側最小，中間最大。",
+    "若N<=0，輸出Error。",
+    "範例輸出說明:",
+    "Sample Output:",
+    "3",
+    "**1",
+    "*131",
+    "13531",
+    "*131",
+    "**1"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "2"
+        ],
+        "output": [
+          "*1",
+          "131",
+          "*1"
+        ]
+      },
+      {
+        "input": [
+          "6"
+        ],
+        "output": [
+          "*****1",
+          "****131",
+          "***13531",
+          "**1357531",
+          "*135797531",
+          "135791197531",
+          "*135797531",
+          "**1357531",
+          "***13531",
+          "****131",
+          "*****1"
+        ]
+      },
+      {
+        "input": [
+          "0"
+        ],
+        "output": [
+          "Error",
+          "</n。>"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  n = int(input())",
+    "  ",
+    "  if n<=0:",
+    "    print(\"Error\")",
+    "    return",
+    "",
+    "  forward(n-1)",
+    "  backward(n-1)",
+    "  return",
+    "",
+    "def forward(n: int):",
+    "  for i in range(n):",
+    "    star(n-i)",
+    "    posCount(i)",
+    "    revCount(i)",
+    "    print()",
+    "",
+    "def backward(n: int):",
+    "  for i in range(n+1):",
+    "    star(i)",
+    "    posCount(n-i)",
+    "    revCount(n-i)",
+    "    print()",
+    "",
+    "def posCount(n: int):",
+    "  for i in range(1, 2*n+2, 2):",
+    "    print(i, end=\"\")",
+    "",
+    "def revCount(n: int):",
+    "  for i in range(2*n-1, 0, -2):",
+    "    print(i, end=\"\")",
+    "",
+    "def star(n: int):",
+    "  print(\"*\"*n, end=\"\")",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

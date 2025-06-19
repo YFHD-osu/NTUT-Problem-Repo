@@ -1,0 +1,195 @@
+{
+  "uuid": "d1f1656a-442a-4751-a470-48710f7c1bed",
+  "title": "26. 物流公司",
+  "createDate": 1750302596249,
+  "collections": [
+    "9b99bc6a-12d6-4347-87c5-9cc2082e7508"
+  ],
+  "problem": [
+    "物流公司有一個貨物倉庫要進行配送，",
+    "倉庫中貨物編號為貨物重量(1~9 公斤) + 貨物名稱(A~Z)組成，",
+    "貨物編號不重複，如兩個貨物編號為1A和2A，則為不重複之貨物編號；",
+    "若兩個貨物編號為1A和1A，則為重複之貨物編號，",
+    "配送的貨車載重限制為M公斤(1 <= M <= 10)，貨車必須滿載才會出發配送，",
+    "若單一貨物重量超出貨車載重限制，則無法配送。",
+    "請計算貨物倉庫的貨物需要運送幾趟才能將貨物全部配送完，",
+    "貨物挑選配送方式依照先輸入的貨物編號優先進行挑選配送。",
+    "輸出並排序每趟配送了哪些貨物編號的貨物名稱。",
+    "輸出貨物的排序方式 :",
+    "單趟內的貨物排序，由貨物名稱英文字母小至大排序，",
+    "所有趟數排序，依照單趟的貨物數量由小排到大，",
+    "若貨物數量相同，則依序比對單趟裡的貨物名稱，英文字母小的優先輸出。",
+    "【輸入說明】",
+    "第一行：輸入倉庫內的所有貨物編號。",
+    "第二行：輸入貨車限重 (1 <= M <= 10)。",
+    "範例輸入：",
+    "4Q 3A 2D 3C 5R 2F 1G",
+    "5",
+    "【輸出說明】",
+    "若輸入的載重限制超出限制範圍，輸出 \"Input Error\"。",
+    "若貨物編號重複，輸出 \"Duplicated ID\"。",
+    "若單一貨物重量超出貨車載重限制，輸出 \"Load limit exceeded\"。",
+    "若貨物未滿載導致無法配送，輸出\"Cannot be delivered\"。",
+    "若上述皆不符合，輸出方式為:",
+    "第一行：輸出配送的總趟數。",
+    "第二行後：輸出排序後的配送貨物名稱。",
+    "範例輸出：",
+    "4",
+    "R",
+    "A D",
+    "C F",
+    "G Q",
+    "以上方輸入為例：",
+    "第一次挑選配送的貨物為: 4Q + 1G",
+    "第二次為: 3A + 2D",
+    "第三次為: 3C + 2F",
+    "第四次為: 5R",
+    "輸出經過排序後應為：",
+    "R",
+    "A D",
+    "C F",
+    "G Q"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "4Q 3A 2D 3C 5R 2F 1G",
+          "5"
+        ],
+        "output": [
+          "4",
+          "R",
+          "A D",
+          "C F",
+          "G Q"
+        ]
+      },
+      {
+        "input": [
+          "4A 3B 2C 3D 5E 2F 1G",
+          "11"
+        ],
+        "output": [
+          "Input Error"
+        ]
+      },
+      {
+        "input": [
+          "4A 3B 2C 3B 5D 2E 1F",
+          "2"
+        ],
+        "output": [
+          "Duplicated ID"
+        ]
+      },
+      {
+        "input": [
+          "4A 3B 2C 3D 5E 2F 1G",
+          "4"
+        ],
+        "output": [
+          "Load limit exceeded"
+        ]
+      },
+      {
+        "input": [
+          "4A 3B 5E 2F 1G 4F",
+          "5"
+        ],
+        "output": [
+          "Cannot be delivered"
+        ]
+      },
+      {
+        "input": [
+          "1D 2D 3D 4D 4G 2F 4A 1H 9B 3Q 7Q 5E 3A 2Z",
+          "10"
+        ],
+        "output": [
+          "5",
+          "B H",
+          "Q Q",
+          "A E Z",
+          "A F G",
+          "D D D D"
+        ]
+      },
+      {
+        "input": [
+          "4S 3T 2N 3A 5K 2E 1W 4Q 3O 2O 1K 2L 2M 4C 1S 1P 5O",
+          "5"
+        ],
+        "output": [
+          "9",
+          "K",
+          "O",
+          "A E",
+          "C P",
+          "K Q",
+          "N T",
+          "O O",
+          "S W",
+          "L M S"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  package = input().split()",
+    "  weight = int(input())",
+    "  ",
+    "  # package.sort(reverse=True)",
+    "",
+    "  if not 1 <= weight <= 10:",
+    "    print(\"Input Error\")",
+    "    return",
+    "",
+    "  if True in [package.count(x) > 1 for x in package]:",
+    "    print(\"Duplicated ID\")",
+    "    return",
+    "  ",
+    "  if True in [int(x[0]) > weight for x in package]:",
+    "    print(\"Load limit exceeded\")",
+    "    return",
+    "",
+    "  output = []",
+    "  while len(package):",
+    "    result = findCombo(weight, package)",
+    "    if not result: return",
+    "",
+    "    result.sort(key=lambda e: e[-1])",
+    "    output.append([x for x in result])",
+    "    for i in result:",
+    "      if i not in package: continue",
+    "      package.remove(i)",
+    "",
+    "    result.clear()",
+    "",
+    "  output.sort(key=lambda e: f\"{len(e)}{''.join(map(lambda e: e[-1], e))}\")",
+    "",
+    "  print(len(output))",
+    "  for i in output:",
+    "    print(\" \".join(sorted(map(lambda e: e[1], i))))",
+    "  ",
+    "def findCombo(weight: int, data: list, depth: int = 0, bag: list = []) -> list: ",
+    "  if weight == 0:",
+    "    return bag",
+    "  ",
+    "  if depth >= len(data):",
+    "    print(\"Cannot be delivered\")",
+    "    return None",
+    "  ",
+    "  packageWeight = int(data[depth][0])",
+    "  if packageWeight <= weight:",
+    "    bag.append(data[depth])",
+    "    weight -= packageWeight",
+    "  ",
+    "  return findCombo(weight, data, depth+1, bag)",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}
