@@ -1,0 +1,131 @@
+{
+  "_comment": "Auto-generated from 038.py and 038.md",
+  "title": "038 部落旅遊",
+  "createDate": 1750301438545,
+  "problem": [
+    "第一行：輸入路徑個數N，起點部落X和終點部落Z，中間皆用一個空白隔開 (3<=N<=15, 1<=X,Z<=20)",
+    "第二行：輸入K個部落作為休息點(1<=K<=5)，部落之間以一個空白隔開",
+    "第三行~第N+2行: 每一行輸入兩正整數 A B,代表 A 部落與 B 部落間有道路相連接 (1<=A,B<=20)",
+    "範例輸入說明:",
+    "5 1 3 (總共有5條路徑，起點為部落1，終點為部落3)",
+    "2 4 (休息點為部落2和部落4)",
+    "2 1 (部落2和部落1有路徑相連接)",
+    "4 5 (部落4和部落5有路徑相連接)",
+    "3 4 (部落3和部落4有路徑相連接)",
+    "2 4 (部落2和部落4有路徑相連接)",
+    "4 1 (部落4和部落1有路徑相連接)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "4 2 5",
+          "4",
+          "4 6",
+          "4 8",
+          "2 4",
+          "5 6"
+        ],
+        "output": [
+          "4",
+          "2 4 6 5"
+        ]
+      },
+      {
+        "input": [
+          "5 1 3",
+          "2 4",
+          "2 1",
+          "4 5",
+          "3 4",
+          "2 4",
+          "4 1"
+        ],
+        "output": [
+          "4",
+          "1 4 3"
+        ]
+      },
+      {
+        "input": [
+          "10 2 10",
+          "3 5 7 8",
+          "1 2",
+          "2 3",
+          "3 4",
+          "4 5",
+          "5 6",
+          "6 7",
+          "7 8",
+          "3 9",
+          "8 9",
+          "9 10"
+        ],
+        "output": [
+          "3",
+          "2 3 9 10"
+        ]
+      },
+      {
+        "input": [
+          "8 2 9",
+          "4 6 8",
+          "1 4",
+          "4 3",
+          "5 2",
+          "3 2",
+          "1 5",
+          "6 9",
+          "8 7",
+          "6 8"
+        ],
+        "output": [
+          "NO"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  count, start, end = input().split()",
+    "  rest = input().split()",
+    "",
+    "  route = {}",
+    "",
+    "  for _ in range(int(count)):",
+    "    a, b = input().split()",
+    "    route[a] = route.get(a, []) + [b]",
+    "    route[b] = route.get(b, []) + [a]",
+    "",
+    "  r = dfs(route, [start], end)",
+    "  if r:",
+    "    print(\" \".join([i for i in r if i in rest]))",
+    "    print(' '.join(r))",
+    "    return",
+    "  ",
+    "  print('NO')",
+    "  return",
+    "",
+    "def dfs(d: dict, seen: list, target: str):",
+    "  if d.get(seen[-1]) == None:",
+    "    return None",
+    "  ",
+    "  if seen[-1] == target:",
+    "    return seen",
+    "  ",
+    "  result = None",
+    "  path = 100",
+    "  for i in d[seen[-1]]:",
+    "    if i in seen: continue",
+    "    res = dfs(d, seen+[i], target)",
+    "    if res and len(res) < path:",
+    "      result = res",
+    "      path = len(res)",
+    "",
+    "  return result",
+    "    ",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

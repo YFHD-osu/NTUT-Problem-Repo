@@ -1,0 +1,93 @@
+{
+  "_comment": "Auto-generated from 013.py and 013.md",
+  "title": "013 印數字菱形",
+  "createDate": 1750301438547,
+  "problem": [
+    "第一行，輸入一個整數N，1",
+    "範例輸入說明:",
+    "Sample Input:",
+    "3(整數N)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "2"
+        ],
+        "output": [
+          "*1",
+          "131",
+          "*1"
+        ]
+      },
+      {
+        "input": [
+          "6"
+        ],
+        "output": [
+          "*****1",
+          "****131",
+          "***13531",
+          "**1357531",
+          "*135797531",
+          "135791197531",
+          "*135797531",
+          "**1357531",
+          "***13531",
+          "****131",
+          "*****1"
+        ]
+      },
+      {
+        "input": [
+          "0"
+        ],
+        "output": [
+          "Error",
+          "</n。>"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  n = int(input())",
+    "  ",
+    "  if n<=0:",
+    "    print(\"Error\")",
+    "    return",
+    "",
+    "  forward(n-1)",
+    "  backward(n-1)",
+    "  return",
+    "",
+    "def forward(n: int):",
+    "  for i in range(n):",
+    "    star(n-i)",
+    "    posCount(i)",
+    "    revCount(i)",
+    "    print()",
+    "",
+    "def backward(n: int):",
+    "  for i in range(n+1):",
+    "    star(i)",
+    "    posCount(n-i)",
+    "    revCount(n-i)",
+    "    print()",
+    "",
+    "def posCount(n: int):",
+    "  for i in range(1, 2*n+2, 2):",
+    "    print(i, end=\"\")",
+    "",
+    "def revCount(n: int):",
+    "  for i in range(2*n-1, 0, -2):",
+    "    print(i, end=\"\")",
+    "",
+    "def star(n: int):",
+    "  print(\"*\"*n, end=\"\")",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

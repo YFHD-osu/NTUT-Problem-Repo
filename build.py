@@ -264,6 +264,7 @@ def main() -> None:
   with open(Path(f"{OUTPUT_ROOT}/index.json"), "w", encoding="utf-8") as f:
     json.dump(index, f, ensure_ascii=False, indent=2)
 
+  logger.info("Build complete successfully")
   return
 
 if __name__ == "__main__":

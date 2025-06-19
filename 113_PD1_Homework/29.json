@@ -1,0 +1,79 @@
+{
+  "_comment": "Auto-generated from 029.py and 029.md",
+  "title": "029 排列組合",
+  "createDate": 1750301438547,
+  "problem": [
+    "第一行輸入字串 M (1 <= len(M) <= 50)，由數字或英文組合",
+    "第二行輸入整數 N (2 <= N <= len(M)-1)",
+    "範例輸入說明:",
+    "Sample Input:",
+    "ab3",
+    "2"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "A5",
+          "1"
+        ],
+        "output": [
+          "A5, 5A",
+          "A, 5"
+        ]
+      },
+      {
+        "input": [
+          "ABCD",
+          "2"
+        ],
+        "output": [
+          "ABCD, ABDC, ACBD, ACDB, ADBC, ADCB, BACD, BADC, BCAD, BCDA, BDAC, BDCA, CABD, CADB, CBAD, CBDA, CDAB, CDBA, DABC, DACB, DBAC, DBCA, DCAB, DCBA",
+          "AB, AC, AD, BC, BD, CD"
+        ]
+      },
+      {
+        "input": [
+          "B1C2D",
+          "4"
+        ],
+        "output": [
+          "B1C2D, B1CD2, B12CD, B12DC, B1DC2, B1D2C, BC12D, BC1D2, BC21D, BC2D1, BCD12, BCD21, B21CD, B21DC, B2C1D, B2CD1, B2D1C, B2DC1, BD1C2, BD12C, BDC12, BDC21, BD21C, BD2C1, 1BC2D, 1BCD2, 1B2CD, 1B2DC, 1BDC2, 1BD2C, 1CB2D, 1CBD2, 1C2BD, 1C2DB, 1CDB2, 1CD2B, 12BCD, 12BDC, 12CBD, 12CDB, 12DBC, 12DCB, 1DBC2, 1DB2C, 1DCB2, 1DC2B, 1D2BC, 1D2CB, CB12D, CB1D2, CB21D, CB2D1, CBD12, CBD21, C1B2D, C1BD2, C12BD, C12DB, C1DB2, C1D2B, C2B1D, C2BD1, C21BD, C21DB, C2DB1, C2D1B, CDB12, CDB21, CD1B2, CD12B, CD2B1, CD21B, 2B1CD, 2B1DC, 2BC1D, 2BCD1, 2BD1C, 2BDC1, 21BCD, 21BDC, 21CBD, 21CDB, 21DBC, 21DCB, 2CB1D, 2CBD1, 2C1BD, 2C1DB, 2CDB1, 2CD1B, 2DB1C, 2DBC1, 2D1BC, 2D1CB, 2DCB1, 2DC1B, DB1C2, DB12C, DBC12, DBC21, DB21C, DB2C1, D1BC2, D1B2C, D1CB2, D1C2B, D12BC, D12CB, DCB12, DCB21, DC1B2, DC12B, DC2B1, DC21B, D2B1C, D2BC1, D21BC, D21CB, D2CB1, D2C1B",
+          "B1C2, B1CD, B12D, BC2D, 1C2D"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def combination(s: str, count: int, start: int = 0):",
+    "  if count == 0:",
+    "    return [\"\"]",
+    "  result = []",
+    "  for i in range(start, len(s)):",
+    "    result.extend([s[i] + x for x in combination(s, count-1, i+1)])",
+    "  return result",
+    "",
+    "def permutation(a: str):",
+    "  if len(a) == 1:",
+    "    return [a]",
+    "  res = []",
+    "  for i in range(len(a)):",
+    "    x = a[i]",
+    "    y = a[:i] + a[i+1:]",
+    "    res.extend(map(lambda e: x+e, permutation(y)))",
+    "  ",
+    "  return res",
+    "",
+    "def main() -> None:",
+    "  answer = input()",
+    "  N = int(input())",
+    "",
+    "  print(\", \".join(permutation(answer)))",
+    "  print(\", \".join(combination(answer, N)))",
+    "  return",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

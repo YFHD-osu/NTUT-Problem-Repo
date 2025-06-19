@@ -10,6 +10,15 @@
       ]
     },
     {
+      "_comment": "Program Design I (Python Language) Homeworks",
+      "name": "113 年 PD1 課程作業",
+      "description": "計算機程式設計I (Python語言) 作業題目",
+      "createDate": 1750252843888,
+      "directories": [
+        "./113_PD1_Homework"
+      ]
+    },
+    {
       "_comment": "Program Design II (C Language) Final Exam",
       "name": "112 期末上機考",
       "description": "計算機程式設計II (C語言) 上機考題目",

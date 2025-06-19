@@ -36,7 +36,12 @@ To add new problem to the database, pelase follow the following format:
         ]
       }
     ]
-  }
+  },
+  "sampleCode": [
+    "Line 1",
+    "Line 2",
+    "..."
+  ]
 }
 ```
 

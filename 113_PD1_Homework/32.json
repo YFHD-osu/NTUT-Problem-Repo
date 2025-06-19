@@ -1,0 +1,130 @@
+{
+  "_comment": "Auto-generated from 032.py and 032.md",
+  "title": "032 快樂數和自戀數",
+  "createDate": 1750301438544,
+  "problem": [
+    "第一行：輸入一個整數n",
+    "範例輸入說明:",
+    "Sample Input:",
+    "7(整數n)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "7"
+        ],
+        "output": [
+          "7 is both a happy number and a narcissistic number.",
+          "F(7) = 13"
+        ]
+      },
+      {
+        "input": [
+          "23"
+        ],
+        "output": [
+          "23 is a happy number.",
+          "F(5) = 5"
+        ]
+      },
+      {
+        "input": [
+          "153"
+        ],
+        "output": [
+          "153 is a narcissistic number.",
+          "9! = 362880"
+        ]
+      },
+      {
+        "input": [
+          "26"
+        ],
+        "output": [
+          "26 is neither a happy number nor a narcissistic number.",
+          "8! = 40320"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main():",
+    "  num = int(input())",
+    "  ",
+    "  happy = isHappy(num)",
+    "  narcissistic = isNarcissistic(num)",
+    "",
+    "  sod = sumOfDigit(num)",
+    "  while sod >= 10:",
+    "    sod = sumOfDigit(sod)",
+    "",
+    "  if happy and narcissistic:",
+    "    print(\"%d is both a happy number and a narcissistic number.\" % (num))",
+    "    print(\"F(%d) = %d\"%(sod, fibonacci(sod-1)))",
+    "    return",
+    "  ",
+    "  if happy:",
+    "    print(\"%d is a happy number.\"%(num))",
+    "    print(\"F(%d) = %d\"%(sod, fibonacci(sod-1)))",
+    "    return",
+    "  ",
+    "  if narcissistic:",
+    "    print(\"%d is a narcissistic number.\"%(num))",
+    "    print(\"%d! = %d\"%(sod, factorial(sod)))",
+    "    return",
+    "",
+    "  print(\"%d is neither a happy number nor a narcissistic number.\"%(num))",
+    "  print(\"%d! = %d\"%(sod, factorial(sod)))",
+    "  return",
+    "",
+    "def fibonacci(index: int):",
+    "  if index < 2:",
+    "    return 1",
+    "  ",
+    "  return fibonacci(index-1) + fibonacci(index-2) ",
+    "",
+    "def factorial(num: int):",
+    "  if num < 2:",
+    "    return 1",
+    "  ",
+    "  return num * factorial(num-1)",
+    "",
+    "def sumOfDigit(num: int):",
+    "  if num < 10:",
+    "    return num",
+    "  ",
+    "  return sumOfDigit(num//10) + num% 10",
+    "",
+    "def isHappy(num: int, depth = 0):",
+    "  if depth > 990:",
+    "    return False",
+    "  ",
+    "  result = 0",
+    "  while num:",
+    "    result += (num % 10) ** 2",
+    "    num //= 10",
+    "  ",
+    "  if result == 1:",
+    "    return True",
+    "",
+    "  return isHappy(result, depth+1)",
+    "  ",
+    "def isNarcissistic(num: int):",
+    "  length = 0",
+    "  while num // 10 ** length:",
+    "    length += 1",
+    "",
+    "  tmp = 0",
+    "  tmpNum = num",
+    "  while tmpNum:",
+    "    tmp += (tmpNum % 10) ** length",
+    "    tmpNum //= 10",
+    "  ",
+    "  return num == tmp  ",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

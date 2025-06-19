@@ -1,0 +1,84 @@
+{
+  "_comment": "Auto-generated from 031.py and 031.md",
+  "title": "031 十六進位排列運算",
+  "createDate": 1750301438544,
+  "problem": [
+    "輸入：0~9和a~f中不重複的n個字，中間以空白間隔",
+    "範例輸入：",
+    "a b 1 2"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "a b 1 2"
+        ],
+        "output": [
+          "9"
+        ]
+      },
+      {
+        "input": [
+          "9 a b c"
+        ],
+        "output": [
+          "4"
+        ]
+      },
+      {
+        "input": [
+          "1 2 a"
+        ],
+        "output": [
+          "4"
+        ]
+      },
+      {
+        "input": [
+          "1 2 3 4 5"
+        ],
+        "output": [
+          "9"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  ",
+    "  arr = [int(x, 16) for x in arrange(input().replace(\" \", \"\"))]",
+    "  arr.sort()",
+    "",
+    "  min = arr[0]",
+    "  max = arr[-1]",
+    "  median = arr[len(arr)//2] if len(arr) % 2 else ((arr[len(arr)//2] + arr[len(arr)//2 - 1]) // 2)",
+    "",
+    "  print(finalize(min+max+median))",
+    "",
+    "def arrange(a: str):",
+    "  if len(a) == 1:",
+    "    return [a]",
+    "  res = []",
+    "  for i in range(len(a)):",
+    "    x = a[i]",
+    "    y = a[:i] + a[i+1:]",
+    "    res.extend(map(lambda e: x+e, arrange(y)))",
+    "  ",
+    "  return res",
+    "",
+    "def finalize(i: int) -> int:",
+    "  if i < 10:",
+    "    return i",
+    "  ",
+    "  nxt = 0",
+    "  while i:",
+    "    nxt += i % 10",
+    "    i = i // 10",
+    "  ",
+    "  return finalize(nxt)",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}

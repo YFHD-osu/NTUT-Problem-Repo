@@ -1,0 +1,156 @@
+{
+  "_comment": "Auto-generated from 030.py and 030.md",
+  "title": "030 理想大學",
+  "createDate": 1750301438546,
+  "problem": [
+    "第一行：輸入整數N (N <= 10)，代表大學個數。",
+    "第二~N+1行：每行第一項為學校名稱，接著為該學校擁有的屬性，大學名稱最多有10個字母，各屬性為2個字母，均為英文字母組成，大學名稱及各屬性間以一個空白分隔。",
+    "第N+2行：輸入整數M (M <= 10)，代表查詢個數",
+    "第N+3~N+M+3行：每一行有一組查詢。查詢條件為校園屬性組成，每個校園屬性為2個字母，用 + 號區隔的條件是\"或\"的關係，沒有 + 區隔是\"且\"的關係。屬性間及 + 之間有1個空白間隔，例如：BC NS + CT HL需找出【大校園且靠海】或【交通方便且校園有湖】的所有大學，其格式如下：XX YY + AA BB，代表條件為：XX且YY，或AA且BB",
+    "第N+M+4行：輸入整數b (0 <= b <= 1)，決定輸出的方式。",
+    "範例輸入：",
+    "3 (有3間大學)",
+    "NSYSU NC CT NS NM (學校名稱為NSYSU，擁有的屬性為NC、CT、NS、NM)",
+    "NTU BC NC CT NS (學校名稱為NTU，擁有的屬性為BC、NC、CT、NS)",
+    "NCCU BC NL HL (學校名稱為NCCU，擁有的屬性為BC、NL、HL)",
+    "2 (有2組查詢)",
+    "BC NS + CT HL (有大校園且靠海 或 交通方便且校園有湖)",
+    "BC + NS (有大校園 或 靠海)",
+    "0 (輸出能符合條件的大學)"
+  ],
+  "testcase": {
+    "codeType": 0,
+    "cases": [
+      {
+        "input": [
+          "5",
+          "NSYSU NC CT NS NM",
+          "NTU BC NC CT NS",
+          "NCCU BC NL HL",
+          "Providence BC NC",
+          "NTHU BC NS",
+          "2",
+          "BC NS + CT HL",
+          "NM + BC NL + BC NC",
+          "0"
+        ],
+        "output": [
+          "NTU NTHU",
+          "NSYSU NTU NCCU Providence"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "NTHU GF HL",
+          "NCTU NM GF BC",
+          "NCKU CT GF NS",
+          "3",
+          "HL + BC NL + CT BC",
+          "NM HL + CT + GF NS",
+          "NM",
+          "0"
+        ],
+        "output": [
+          "NTHU",
+          "NCKU",
+          "NCTU"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "NCU CT NM",
+          "NUU BC GF NL NM CT",
+          "NTOU GF NL NM",
+          "NTNU HL NC",
+          "2",
+          "BC",
+          "HL BC + NS GF + NL + NM",
+          "1"
+        ],
+        "output": [
+          "NUU",
+          "NUU"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "NTUE CT NM HL NC",
+          "NHCUE NS",
+          "NTCU NS NC",
+          "3",
+          "NS + BC HL",
+          "CT",
+          "BC GF NC NS NL",
+          "1"
+        ],
+        "output": [
+          "NTUE NHCUE NTCU",
+          "NTUE",
+          "NTCU"
+        ]
+      }
+    ]
+  },
+  "sampleCode": [
+    "def main() -> None:",
+    "  raw = [input().split() for _ in range(int(input()))]",
+    "  data = dict([(i[0], i[1:]) for i in raw])",
+    "",
+    "  query = [input() for _ in range(int(input()))]",
+    "  ",
+    "  mode = int(input())",
+    "",
+    "  if mode:",
+    "    for q in query:",
+    "      # print(q)",
+    "      ans = queryApp(data, q)",
+    "      print(\" \".join(ans))",
+    "    return",
+    "",
+    "  for q in query:",
+    "    ans = queryAbs(data, q)",
+    "    print(\" \".join(ans))",
+    "",
+    "  return",
+    "",
+    "def queryAbs(data: dict, query: str) -> list:",
+    "  conds = [x.strip() for x in query.split(\"+ \")]",
+    "",
+    "  ans = []",
+    "",
+    "  for key in data:",
+    "    if True in [absMatch(data[key], i) for i in conds]:",
+    "      ans.append(key)",
+    " ",
+    "  return ans",
+    "",
+    "def queryApp(data: dict, query: str) -> list:",
+    "  conds = [x.strip() for x in query.replace(\"+ \", '').split()]",
+    "  ",
+    "  ans = []",
+    "  maxMatch = 0",
+    "",
+    "  for key in data:",
+    "    matchCount = len([x  for x in conds if x in data[key]])",
+    "    # print(f\"{key} -> {matchCount}\")",
+    "    if matchCount > maxMatch:",
+    "      ans = [key]",
+    "      maxMatch = matchCount",
+    "    ",
+    "    elif matchCount == maxMatch:",
+    "      ans.append(key)",
+    "",
+    "    # print(ans)",
+    "  return ans",
+    "",
+    "def absMatch(condition: str, target: str) -> bool:",
+    "  return not any(i not in condition for i in target.split())",
+    "",
+    "",
+    "if __name__ == \"__main__\":",
+    "  main()"
+  ]
+}
