@@ -1,0 +1,96 @@
+{
+  "_comment": "",
+  "uuid": null,
+  "title": "三、文字編輯(25%)",
+  "createDate": 1700000000000,
+  "collections": null,
+  "problem": [
+    "三、文字編輯(25%)",
+    "設計一個命令列簡易文字編輯器，大小寫視為不同。",
+    "輸入說明",
+    "1. 第一行輸入一個整數 M, N， M 是原始文章行數，N 是編",
+    "輯指令數。",
+    "2. 其後 M 行，每一行為原始句子，以空白隔開每個字。",
+    "3. 其後 N 行，每一行的第一個字串為編輯指令，隨後為對",
+    "應的控制字串，以空白隔開。",
+    "4. 文章不含標點符號；第幾行、第幾個字都是從 1 開始計算。",
+    "編輯指令 意義",
+    "awf i n word 在第 i 行中，第 n 個字前面加上 word",
+    "awa i n word 在第 i 行中，第 n 個字後面加上 word",
+    "asf i sentence 在第 i 行前面加入一句 sentence",
+    "asa i sentence 在第 i 行後面加入一句 sentence",
+    "if key word 在文章中所有 key 前面加上 word",
+    "ia key word 在文章中所有 key 的後面加上 word",
+    "dw i n 刪除第 i 行中，第 n 個字",
+    "dl i 刪除第 i 行 (其他行的行數，會受此影",
+    "響)",
+    "rp old new 將文章中所有 old 替換為 new",
+    "c 目前文章總計字數",
+    "輸出說明",
+    "輸出編輯完成之文章。例如："
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "5 6",
+          "Morning mom",
+          "Morning dear",
+          "What is for breakfast",
+          "Here are your eggs",
+          "Looks good",
+          "if Morning Good",
+          "rp Morning night",
+          "dl 1",
+          "dw 1 3",
+          "asa 4 thanks mom",
+          "c"
+        ],
+        "output": [
+          "14",
+          "Good night",
+          "What is for breakfast",
+          "Here are your eggs",
+          "Looks good thanks mom"
+        ]
+      },
+      {
+        "input": [
+          "5 5",
+          "Pen",
+          "Pineapple",
+          "Orange Pen",
+          "Ugh",
+          "Apple",
+          "dl 3",
+          "awa 2 1 Pen",
+          "ia Apple Pen",
+          "awf 1 1 Apple",
+          "asf 4 Pen Pineapple"
+        ],
+        "output": [
+          "Apple Pen",
+          "Pineapple Pen",
+          "Ugh",
+          "Pen Pineapple Apple Pen"
+        ]
+      },
+      {
+        "input": [
+          "2 3",
+          "is is is",
+          "was was were",
+          "rp was were",
+          "if were ha",
+          "ia is woo"
+        ],
+        "output": [
+          "is woo is woo is woo",
+          "ha were ha were ha were"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

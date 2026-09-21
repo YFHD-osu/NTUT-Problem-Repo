@@ -1,0 +1,85 @@
+{
+  "uuid": null,
+  "title": "文章處理",
+  "createDate": 1789970771132,
+  "collections": null,
+  "problem": [
+    "輸入一個英文句子 A (空白、大小寫英文字母組合)、 2 個英文字(word-以大小寫英文字母組合且以一個空白分隔) P, Q、文章分析處理指令 C，若 C=4，則須輸入整數 N。",
+    "輸入說明",
+    "Line 1, A",
+    "Line 2, P",
+    "Line 3, Q",
+    "Line 4, C",
+    "Line 5, N (當 C=4 時，需輸入 N)",
+    "輸出說明",
+    "C=1, 在文句 A 中 P 字串前插入 Q 字串。",
+    "C=2, 將文句 A 中 P 字串以 Q 字串取代。",
+    "C=3, 將文句 A 中 P 字串刪除。",
+    "C=4, 將文句中，出現頻率小於 N 的英文字刪除。",
+    "C=5，統計文句 A 中英文字出現頻率前 3 低，頻率低到高排列，若頻率一樣則由字母大到小排列，大寫在小寫前，用 : 隔開單字與頻率，冒號前後無空白，一個單字與頻率一行。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "Do you do a do as a doorer do do a do",
+          "do",
+          "bo",
+          "1"
+        ],
+        "output": [
+          "Do you bo do a bo do as a doorer bo do bo do a bo do"
+        ]
+      },
+      {
+        "input": [
+          "However were however is cold or however were however is hot",
+          "were",
+          "b",
+          "2"
+        ],
+        "output": [
+          "However b however is cold or however b however is hot"
+        ]
+      },
+      {
+        "input": [
+          "The monkey want to eat a banana to make many and many banana because it is very like banana",
+          "banana",
+          "apple",
+          "3"
+        ],
+        "output": [
+          "The monkey want to eat a to make many and many because it is very like"
+        ]
+      },
+      {
+        "input": [
+          "I like to like the like you like to like but if you like the like the likely like I would like the like you like to like",
+          "like",
+          "likely",
+          "4",
+          "3"
+        ],
+        "output": [
+          "like to like the like you like to like you like the like the like like the like you like to like"
+        ]
+      },
+      {
+        "input": [
+          "Can you can a can as a canner can can a can Can as Can a as canner Can",
+          "can",
+          "ban",
+          "5"
+        ],
+        "output": [
+          "you:1",
+          "canner:2",
+          "as:3"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

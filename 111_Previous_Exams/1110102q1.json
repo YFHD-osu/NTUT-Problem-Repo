@@ -1,0 +1,74 @@
+{
+  "uuid": null,
+  "title": "商店販賣物品",
+  "createDate": 1789970824080,
+  "collections": null,
+  "problem": [
+    "請使用 map、filter、lambda、sorted 函式解題。",
+    "有一家商店想要販售商品，給定數個商品的資訊",
+    "商品的資訊依序為商品名稱、商品價格",
+    "請將價格大於等於 70 元的商品打 8 折後，打折後的價格無條件捨去小數點，只留整數部分。",
+    "資料以商品價格由大到小排序，並輸出有打折的商品名稱及價格。",
+    "輸入的商品資料至少會有一筆大於等於 70 元的商品，且不會有打折後價格相同的狀況。",
+    "",
+    "Input description",
+    "Line 1: N ( 3 <= N <= 8 )，代表有 N 個商品的資料",
+    "Line 2~N+1: 商品的資料，依序為商品名稱 M, 商品價格 K (1 <= K <= 200)",
+    "",
+    "Output description",
+    "資料以商品的價格由大到小排序，並輸出有打折的商品名稱及價格。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "4",
+          "water 25",
+          "chicken 70",
+          "pork 200",
+          "ham 150"
+        ],
+        "output": [
+          "pork 160",
+          "ham 120",
+          "chicken 56"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "pen 150",
+          "banana 80",
+          "recorder 200"
+        ],
+        "output": [
+          "recorder 160",
+          "pen 120",
+          "banana 64"
+        ]
+      },
+      {
+        "input": [
+          "8",
+          "water 25",
+          "chicken 125",
+          "pen 80",
+          "recorder 200",
+          "cola 30",
+          "rice 150",
+          "sticker 60",
+          "mouse 100"
+        ],
+        "output": [
+          "recorder 160",
+          "rice 120",
+          "chicken 100",
+          "mouse 80",
+          "pen 64"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

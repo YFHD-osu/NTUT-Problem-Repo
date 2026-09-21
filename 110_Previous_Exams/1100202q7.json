@@ -1,0 +1,82 @@
+{
+  "uuid": null,
+  "title": "七、(20%)建構唯一二元樹",
+  "createDate": 1700000000000,
+  "collections": null,
+  "problem": [
+    "(使用以下 struct 與 Link List 實作才計分)",
+    "typedef struct node_s {",
+    " char data;",
+    " struct node_s * right, * left;",
+    "} tree_t;",
+    "typedef tree_t * btree;",
+    "給定前序或後序以及中序，建構唯一的二元樹，節點資料為大寫英文字母。輸出樹的節點資料內容，順序為由上而下，由左而右印出。",
+    "前序代號：P",
+    "中序代號：I",
+    "後序代號：O",
+    "",
+    "輸入說明",
+    "Line 1, n 表示二元樹有 n 個節點",
+    "Line 2, 前、中、後序代號。",
+    "Line 3, 上筆尋訪資料。",
+    "Line 4, 前、中、後序代號。",
+    "Line 5, 上筆尋訪資料。",
+    "",
+    "輸出說明",
+    "輸出唯一二元樹的內容，由上而下，由左而右。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "9",
+          "P",
+          "ABCDEFGHI",
+          "I",
+          "BCAEDGHFI"
+        ],
+        "output": [
+          "ABDCEFGIH"
+        ]
+      },
+      {
+        "input": [
+          "7",
+          "P",
+          "ABCDEFG",
+          "I",
+          "GFEDCBA"
+        ],
+        "output": [
+          "ABCDEFG"
+        ]
+      },
+      {
+        "input": [
+          "9",
+          "O",
+          "IHGFEDCBA",
+          "I",
+          "ACEGIHFDB"
+        ],
+        "output": [
+          "ABCDEFGHI"
+        ]
+      },
+      {
+        "input": [
+          "15",
+          "P",
+          "ABDHIEJKCFLMGNO",
+          "I",
+          "HDIBJEKALFMCNGO"
+        ],
+        "output": [
+          "ABCDEFGHIJKLMNO"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

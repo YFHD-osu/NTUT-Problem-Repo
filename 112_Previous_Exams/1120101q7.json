@@ -1,0 +1,261 @@
+{
+  "uuid": null,
+  "title": "撲克牌比大小",
+  "createDate": 1789969877260,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "七、撲克牌比大小(20%) (3%,3%,2%,2%,2%,2%,2%,2%,2%,2%)",
+    "N(2<=N<=4)位玩家進行撲克牌比大小，每位玩家玩家手上都有 2 張牌，要跟牌桌上的 4 張牌隨意組成 5 張牌，每位玩家會挑出他們各自最好的牌型進行比大小。",
+    "輸出最大和最小的玩家名稱及牌型，若最大牌型有 2人以上(含 2 人)重複，則按照輸入的順序同時輸出玩家名稱及牌型，輸出最小牌型亦是如此，當最大牌型和最小牌型相同時，輸出\"Tie\"以及平手的牌型。",
+    "Suit: Spade (S), Heart (H), Diamond (D), Club (C).",
+    "Face: A, 2, …, J, Q, K.",
+    "Type 編號，編號 1 牌型最小，編號 9 牌型最大:",
+    "1. High Card：單一張牌。",
+    "2. One pair：兩張牌數字一樣。",
+    "3. Two pairs：兩組 Pair 的牌。",
+    "4. Three of a kind：三張牌數字一樣。",
+    "5. Straight：數字連續的五張牌",
+    "6. Flush：五張同一花色的牌。",
+    "7. Full House：Three of a Kind 加一個 Pair。",
+    "8. Four of a kind：四張牌數字一樣。",
+    "9. Straight flush：數字連續的五張牌且花色一樣。",
+    "",
+    "(牌的輸入格式:",
+    "Suit+Face. (S10 代表 Spade 10, D7 代表 Diamond 7, CQ代表 Club Q).)",
+    "注意:",
+    "1. 當有錯誤輸入的牌時，輸出\"Error input\"",
+    "2. 當有重複輸入的牌時，輸出\"Duplicate deal\"",
+    "3. 當\"Error input\"和\"Duplicate deal\"同時發生時，輸出\"Error input\""
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "2",
+          "Amy F5 U6",
+          "Tony G9 H9",
+          "S2 T4 T6 T10"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "Gary C6 C7",
+          "Tommy H9 D10",
+          "CA S3 S5 H9"
+        ],
+        "output": [
+          "Duplicate deal"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "Amy F5 U6",
+          "Tommy H9 D10",
+          "CA S3 S5 H9"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "Ray D4 H9",
+          "Query HK C9",
+          "Bob SJ C3",
+          "DA DQ H10 CK"
+        ],
+        "output": [
+          "Max Bob 5",
+          "Min Ray 1"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "Jimmy HJ S6",
+          "Tom D3 D6",
+          "City C3 H8",
+          "SA HK H2 CQ"
+        ],
+        "output": [
+          "Tie 5"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "TT S5 C9",
+          "SOR C4 S6",
+          "Henry H8 H6",
+          "H5 D5 C5 S8"
+        ],
+        "output": [
+          "Max TT 8",
+          "Min SOR 4"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "A S5 C9",
+          "B C4 S6",
+          "C HQ D10",
+          "H5 S8 D5 CJ"
+        ],
+        "output": [
+          "Max A 4",
+          "Min B C 2"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "AKA S10 D9",
+          "PPP S7 H3",
+          "GP D2 C9",
+          "SR H2 S9",
+          "H7 S2 C7 C2"
+        ],
+        "output": [
+          "Max PPP GP SR 7",
+          "Min AKA 3"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "D SA S3",
+          "C S5 H7",
+          "B D9 CJ",
+          "A H10 CQ",
+          "SK S8 H9 D5"
+        ],
+        "output": [
+          "Max C B 2",
+          "Min D A 1"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "Coddy C1 C9",
+          "Jay HK D10",
+          "C4 D5 S2 H3"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "A C5 CJ",
+          "B C6 HK",
+          "C2 C3 C6 C5"
+        ],
+        "output": [
+          "Duplicate deal"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "C C5 CJ",
+          "D C6 HK",
+          "C2 CC3 C6 C5"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "Coddy CA C9",
+          "Jay C6 C10",
+          "C4 C5 C2 C3"
+        ],
+        "output": [
+          "Tie 9"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "Tom SA H3",
+          "Jisoo C7 C5",
+          "Lisa CK HK",
+          "C2 CQ C8 C6"
+        ],
+        "output": [
+          "Max Jisoo Lisa 6",
+          "Min Tom 1"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "A S7 H7",
+          "B DA D9",
+          "C SJ DK",
+          "D7 H4 C9 D4"
+        ],
+        "output": [
+          "Max A 7",
+          "Min C 2"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "Mary C3 S2",
+          "Cast C7 S9",
+          "Curry S6 H6",
+          "H2 S8 D6 C6"
+        ],
+        "output": [
+          "Max Curry 8",
+          "Min Cast 2"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "D SA S2",
+          "B D3 D4",
+          "A H5 H6",
+          "C C7 S8",
+          "CJ SQ C9 H8"
+        ],
+        "output": [
+          "Max C 2",
+          "Min D B A 1"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "A S4 H4",
+          "B S6 D6",
+          "C D8 C9",
+          "D HJ HQ",
+          "D4 C4 H6 C6"
+        ],
+        "output": [
+          "Max A B 8",
+          "Min C D 3"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

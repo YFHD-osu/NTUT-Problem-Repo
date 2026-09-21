@@ -1,0 +1,76 @@
+{
+  "uuid": null,
+  "title": "基因序列(20%) (5% , 5% , 5% , 5%)",
+  "createDate": 1789970823464,
+  "collections": null,
+  "problem": [
+    "DNA 序列是由英文字母組成的字串，基因(gene)是隱藏於 DNA 序列中的部分片段(子字串)，給定一個 DNA 序列字串，序列字串長度小於 50，找出在 DNA 序列字串中的基因，基因可能有多個，輸出時以基因長度排序，若長度相同則依照字母順序，若沒有找到基因，則輸出：No gene，找基因時須依照以下四個規則：",
+    "規則一",
+    "給定一個前面序列字串以及三個後面序列字串，基因需為被前面序列字串與後面序列字串夾在中間的字串。",
+    "如：給定前面序列字串為 AHTG，給定後面序列字串為 TAG、TAA、TGA。",
+    "則給定 DNA 序列字串為 AHTGTTTTAA，則被 AHTG 和 TAA 夾在中間的 TTT 即符合此規則。",
+    "規則二",
+    "基因長度需為質數，其中未含有前面序列字串與後面序列字串。",
+    "如：根據規則一所得到的基因 TTT 長度為 3，3 是質數，因此 TTT 符合此規則",
+    "規則三",
+    "基因只會包含 A、T、C、G 四個字元",
+    "規則四",
+    "前面序列字串中除了開頭或結尾，中間可能會包含一個以上的「?」字元，「?」可以是任何字元，如：符合 A??G 的字串可以有 ABCG、AXYG 等",
+    "",
+    "【輸入說明】",
+    "A?G 輸入一個基因前面序列字串",
+    "TAG TAA TGA 輸入三個基因後面序列字串，中間以空白間隔",
+    "ATGTTTTAA 輸入一個 DNA 序列字串",
+    "",
+    "【輸出說明】",
+    "TTT 找出 DNA 序列字串中所有的基因，輸出排序後的結果"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "AEG",
+          "TAG TGB EWQ",
+          "AEGTTTEWQ"
+        ],
+        "output": [
+          "TTT"
+        ]
+      },
+      {
+        "input": [
+          "AXND",
+          "JYU KUO POI",
+          "IUAXNDTCGAKUOTEAXNDAVGPOI"
+        ],
+        "output": [
+          "No gene"
+        ]
+      },
+      {
+        "input": [
+          "A?C",
+          "EDC RFV TGB",
+          "APCGTACGTGBCKARCGTACTGBAMCTAGEDC"
+        ],
+        "output": [
+          "TAG",
+          "GTACG"
+        ]
+      },
+      {
+        "input": [
+          "A??Y?C",
+          "DOK KEY MNB",
+          "ABCYHCACGDOKJHAEMYOCGTCMNB"
+        ],
+        "output": [
+          "ACG",
+          "GTC"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

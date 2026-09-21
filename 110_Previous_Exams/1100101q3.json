@@ -1,0 +1,128 @@
+{
+  "uuid": null,
+  "title": "Poker",
+  "createDate": 1789959526549,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "Poker (30%)",
+    "Winner Rule: ",
+    "(1) face: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K. The rank of A~10 are 1~10, and J, K, Q are 0.5. ",
+    "(2) player and computer got some poker, and the winner is the nearly approach 10.5 point that summary all pokers in the hand. ",
+    "(3) Burst 爆: If the point over 10.5, the player should be game over, and the player is forbidden to ask for another card.",
+    "Player 停牌 Rule",
+    "(1) Player Burst, Player 立賠。",
+    "(2) Player got 10.5, Computer 立賠。",
+    "(3) Player got 5 cards and not burst，Computer 立賠。",
+    "(4) 任一回合未要牌(N)。",
+    "遊戲流程：",
+    "1. 輸入 Players 人數 N，1<=N<=3。",
+    "2. 輸入 Players 下注數 P，1<=P<=10，以空格區隔。",
+    "3. Computer 和 Players 各發一張牌，以空格區隔。",
+    "4. Players 依序要牌，Y 為要牌，N 為停牌，接著輸入Face，可持續要牌，直到停牌，再由下一位 Player 要牌。",
+    "5. Players 停牌後，若所有 Players 都已經與 Computer 分出勝負，則遊戲結束。否則 Computer 判斷是否要牌，若Computer 點數小於所有 Players 最低點數時要牌，直到停牌或爆。",
+    "7. 若 Computer 爆，須賠給未爆 Players 且遊戲結束。",
+    "8. Computer 停牌後，與未爆 Players 比較點數，大者勝，若點數相同視為 Computer 勝，遊戲結束。",
+    "9. 輸出 Computer 與各 Player 的賠數字或勝數字，賠以負號表示，勝以正號表示。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "3",
+          "2 10 5",
+          "3 Q 3 10",
+          "Y 2",
+          "Y 7",
+          "N",
+          "Y 8",
+          "Y Q"
+        ],
+        "output": [
+          "Player1 -2",
+          "Player2 -10",
+          "Player3 +5",
+          "Computer +7"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "7 4",
+          "10 9 8",
+          "Y A",
+          "N",
+          "Y 2",
+          "N"
+        ],
+        "output": [
+          "Player1 -7",
+          "Player2 -4",
+          "Computer +11"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "4 5 6",
+          "A 2 3 4",
+          "Y A",
+          "Y 2",
+          "Y 3",
+          "Y 2",
+          "Y 7",
+          "Y K",
+          "Y 6",
+          "Y A"
+        ],
+        "output": [
+          "Player1 +4",
+          "Player2 +5",
+          "Player3 -6",
+          "Computer -3"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "4 5 6",
+          "A 4 3 2",
+          "N",
+          "N",
+          "N",
+          "2"
+        ],
+        "output": [
+          "Player1 +4",
+          "Player2 -5",
+          "Player3 -6",
+          "Computer +7"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "2 3 4",
+          "A 5 6 7",
+          "Y 5",
+          "N",
+          "Y 4",
+          "N",
+          "Y 3",
+          "N",
+          "8",
+          "3"
+        ],
+        "output": [
+          "Player1 +2",
+          "Player2 +3",
+          "Player3 +4",
+          "Computer -9"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

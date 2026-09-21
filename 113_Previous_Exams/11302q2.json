@@ -1,0 +1,105 @@
+{
+  "uuid": null,
+  "title": "二、分數四則運算",
+  "createDate": 1789970909446,
+  "collections": null,
+  "problem": [
+    "【請實作以下函式進行計算，否則不計分】",
+    "計算 3 個分數的四則運算（需先乘除後加減），輸出運算後的結果。",
+    "void add(int *numer1, int *denom1, int *numer2, int * denom2, int *resNumer, int *resDenom)",
+    "void sub(int *numer1, int *denom1, int *numer2, int * denom2, int *resNumer, int *resDenom)",
+    "void mul(int *numer1, int *denom1, int *numer2, int * denom2, int *resNumer, int *resDenom)",
+    "void divi(int *numer1, int *denom1, int *numer2, int * denom2, int *resNumer, int *resDenom)",
+    "Input description",
+    "Line1：第一個分數",
+    "Line2：運算子",
+    "Line3：第二個分數",
+    "Line4：運算子",
+    "Line5：第三個分數",
+    "Output description",
+    "1.輸出 3 個分數經過四則運算後的結果",
+    "2.若分母為 0，則印出 division by zero，並立即終止程式",
+    "3.結果分數須化為最簡分數",
+    "4.若結果大於 1，化為整數與真分數，真分數部分要加括號，如(7/6)輸出 1(1/6)",
+    "5.負數結果的輸出，負號在最前面",
+    "6.若結果為 0，輸出 0"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "3/5",
+          "+",
+          "1/2",
+          "+",
+          "17/0"
+        ],
+        "output": [
+          "division by zero"
+        ]
+      },
+      {
+        "input": [
+          "8(3/4)",
+          "+",
+          "17(14/45)",
+          "*",
+          "20(1/2)"
+        ],
+        "output": [
+          "363(113/180)"
+        ]
+      },
+      {
+        "input": [
+          "1/4",
+          "+",
+          "1/4",
+          "-",
+          "1/2"
+        ],
+        "output": [
+          "0"
+        ]
+      },
+      {
+        "input": [
+          "-5/18",
+          "-",
+          "60/352",
+          "*",
+          "89/126"
+        ],
+        "output": [
+          "-4415/11088"
+        ]
+      },
+      {
+        "input": [
+          "-77/89",
+          "*",
+          "-7(121/545)",
+          "*",
+          "2(1/1)"
+        ],
+        "output": [
+          "18(36126/48505)"
+        ]
+      },
+      {
+        "input": [
+          "20/60",
+          "/",
+          "23/46",
+          "/",
+          "-3/26"
+        ],
+        "output": [
+          "-5(7/9)"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

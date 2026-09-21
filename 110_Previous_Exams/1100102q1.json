@@ -1,0 +1,119 @@
+{
+  "_comment": "",
+  "uuid": null,
+  "title": "一、理想大學環境 (30%)",
+  "createDate": 1700000000000,
+  "collections": null,
+  "problem": [
+    "一、理想大學環境 (30%)",
+    "假設每一大學可以用下列 8 種屬性表示：",
+    "GF(Good Food) ：代表附近有美食。",
+    "BC(Big Campus)：代表有大校園。",
+    "NC(Next to City)：代表鄰近有大城市。",
+    "CT(Convenient Transportation)：代表交通方便。",
+    "NS(Next to Sea)：代表靠海。",
+    "NM(Next to Mountain)：代表依山。",
+    "HL(Has Lake)：代表校園有湖。",
+    "NL(Near Landscape)：代表附近有風景區。",
+    "輸入說明：",
+    "1. 第一行輸入一個正整數 n，代表大學個數 n ，(n<=10)。",
+    "2. 其後 n 行，每一行第一項為大學名稱，接著為其屬性。大",
+    "學名稱最多有 10 個字母，各屬性為 2 個字母。大學與屬",
+    "性資料均為英文字母組成，大學名稱及各屬性間以 1 個",
+    "空白分隔。",
+    "3. 接下來 1 行輸入一個正整數 m，為查詢個數，( m<=10) 。",
+    "4. 其後 m 行，每一行有一個查詢。查詢條件為校園屬性組",
+    "成，每個校園屬性為 2 個字元。用 + 號區格的條件代表",
+    "\"或\" 的關係，沒有 + 區隔的條件代表 \"且\" 的關係。屬性",
+    "間及 + 之間有 1 個空白間隔。例如： BC NS + CT HL 代",
+    "表需找出【大校園且靠海】，或【交通方便且校園有湖】",
+    "的所有大學名稱。其格式如下: ",
+    "XX YY + AA BB",
+    "意思為屬性條件為: XX 且 YY，或是 AA 且 BB。",
+    "5. 最後 1 行輸入一個正整數 b，b=0，代表輸出能符合條件",
+    "的大學。例如：條件 NS BC NC + CT HL，大學屬性",
+    "NTUT NC BC NS ，則 NTUT 符合條件。 b=1，代表輸出",
+    "部分符合且符合最多條件的大學。例如：條件 NS BC ",
+    "NC + CT HL，大學屬性 NTUT BC NS、 NTUST BC，則",
+    "輸出 NTUT。",
+    "輸出說明：",
+    "m 行，第 i 列印出第 i 個查詢中，所有符合之大學名稱。",
+    "若有多個大學符合一個查詢，各大學間以一個空白分隔。",
+    "每行查詢的輸出順序，根據先後子查詢條件符合的大學順",
+    "序輸出。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "5",
+          "NSYSU NC CT NS NM",
+          "NTU BC NC CT NS",
+          "NCCU BC NL HL",
+          "Providence BC NC",
+          "NTHU BC NS",
+          "2",
+          "BC NS + CT HL",
+          "NM + BC NL + BC NC",
+          "0"
+        ],
+        "output": [
+          "NTU NTHU",
+          "NSYSU NCCU NTU",
+          "Providence"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "NSYSU NC CT NS NM",
+          "NTU BC NC CT HL",
+          "NCCU BC NL HL",
+          "Providence BC NC",
+          "NTHU BC NS",
+          "1",
+          "BC NS + CT HL",
+          "0"
+        ],
+        "output": [
+          "NTHU NTU"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "NTUT BC NS NL NM",
+          "NCCU BC NC CT",
+          "NCU CT HL",
+          "1",
+          "GF BC NC CT NS NM",
+          "HL NL",
+          "1"
+        ],
+        "output": [
+          "NTUT"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "NTU BC NC CT NS GF",
+          "NTUT CT NL NC",
+          "NCKU BC CT NL",
+          "NCU BC NM",
+          "2",
+          "BC NS + NC + CT + GF",
+          "BC + NL + HL",
+          "0"
+        ],
+        "output": [
+          "NTU NTUT NCKU",
+          "NTU NCKU NCU",
+          "NTUT"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

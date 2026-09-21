@@ -1,0 +1,63 @@
+{
+  "uuid": null,
+  "title": "Password strength",
+  "createDate": 1789959526549,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "(20%)Password strength ",
+    "1. N 個英文字母小寫加 N 分。",
+    "2. X 個英文字母大寫加 X*3 分。",
+    "3. Y 個數字加 Y*2 分。",
+    "4. M 個特殊符號{ ~!@#$%^&*<>_+=}加 M*4.5 分。",
+    "5. 有五個以上的數字且任兩個數字在密碼中的位置不相鄰，例如：「1a1a1a1a1」，加 10 分。",
+    "輸入說明：",
+    "輸入 N(2<=N<=5)組密碼，每組以換行區隔，且任兩組密碼strength 不會相同，可一直輸入，直到輸入-1 停止。",
+    "輸出說明：",
+    "計算各組密碼 strength，依序輸出最高及最低兩組密碼及其strength，兩組密碼以換行區隔，密碼與分數間以空格區隔。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "@w@",
+          "QAQ",
+          "Orz",
+          "-1"
+        ],
+        "output": [
+          "@w@ 10.0",
+          "Orz 5.0"
+        ]
+      },
+      {
+        "input": [
+          "0A0A0A0A0A0",
+          "e=mc^2",
+          "Pek0Pek0",
+          "PEKOPEKO",
+          "-1"
+        ],
+        "output": [
+          "0A0A0A0A0A0 37.0",
+          "e=mc^2 14.0"
+        ]
+      },
+      {
+        "input": [
+          "1ac@^5K9p#$24H7",
+          "Lr4f2jY&d3%0P4U",
+          "a1a1a1a1a",
+          "-1"
+        ],
+        "output": [
+          "Lr4f2jY&d3%0P4U 45.0",
+          "a1a1a1a1a 13.0"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

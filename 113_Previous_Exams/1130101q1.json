@@ -1,0 +1,98 @@
+{
+  "uuid": null,
+  "title": "圖形輸出",
+  "createDate": 1789969952806,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "一、圖形輸出(24%)(4%,4%,4%,4%,4%,4%)",
+    "【本題禁止使用 Nested Loop、禁止直接 print 列印答案】",
+    "Input description",
+    "Line 1: graph type number N ( 1<= N <= 4 )",
+    "Line 2: graph level parameter L (3<=L<=11, 且為奇數 odd number)",
+    "",
+    "Output description",
+    "If the input exceeds the given range, please output ‘error’ and terminate the program",
+    "For valid inputs, please output the specified graph"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "0"
+        ],
+        "output": [
+          "error"
+        ]
+      },
+      {
+        "input": [
+          "1",
+          "6"
+        ],
+        "output": [
+          "error"
+        ]
+      },
+      {
+        "input": [
+          "1",
+          "5"
+        ],
+        "output": [
+          "****-",
+          "***-*",
+          "**-**",
+          "*-***",
+          "-****"
+        ]
+      },
+      {
+        "input": [
+          "2",
+          "5"
+        ],
+        "output": [
+          "1********1",
+          "12******21",
+          "123****321",
+          "1234**4321",
+          "1234554321"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "5"
+        ],
+        "output": [
+          "_____#_____",
+          "#___#_#___#",
+          "##_#___#_##",
+          "#___#_#___#",
+          "_____#_____"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "9"
+        ],
+        "output": [
+          "*_______*",
+          "**_____**",
+          "***___***",
+          "****_****",
+          "*********",
+          "_*******_",
+          "__*****__",
+          "___***___",
+          "____*____"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

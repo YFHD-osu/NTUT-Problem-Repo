@@ -1,0 +1,112 @@
+{
+  "uuid": null,
+  "title": "撲克牌梭哈",
+  "createDate": 1789969772089,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "五、撲克牌梭哈(20%) (2%, 2%, 2%, 2%, 3%, 3%, 3%, 3%)",
+    "Suit: Spade (S), Heart (H), Diamond (D), Club (C). S>H>D>C.",
+    "Face: A, 2, …, J, Q, K. The point of 2~10 is 2~10, A is 14, and J is 11, Q is 12, K is 13.",
+    "Type 編號，編號 1 牌型最小，編號 9 牌型最大:",
+    "1. High Card : 單一張牌。",
+    "2. One pair: 兩張牌數字一樣",
+    "3. Two pairs : 兩組 Pair 的牌。",
+    "4. Three of a kind : 三張牌數字一樣。",
+    "5. Straight : 數字連續的五張牌，包括[2, 3, 4, 5, 6],.., [J, Q, K, A, 2], [Q, K ,A, 2, 3], [K , A, 2, 3, 4], [A, 2, 3, 4, 5]。",
+    "6. Flush : 五張同一花色的牌",
+    "7. Full House : Three of a Kind 加一個 Pair",
+    "8. Four of a kind: : 四張牌數字一樣",
+    "9. Straight flush : 數字連續的五張牌且花色一樣",
+    "",
+    "Input Description",
+    "Line 1: 第 1 組牌 5 張 encode，以空格分開。",
+    "Line 2: 第 2 組牌 5 張 encode，以空格分開。",
+    "encode: Face+Suit. (10S - Spade 10, 7D - Diamond 7, QC - Club Q).",
+    "",
+    "Output Description",
+    "1. 輸出兩組牌之中，較大的牌型編號(1~9)。",
+    "2. 任何一組牌輸入錯誤，輸出 \"Error input\"。",
+    "3. 牌有重複，輸出 \"Duplicate deal\" 。",
+    "4. 若\"Error input\"和 \"Duplicate deal\" 同時發生則輸出 \"Error input\" "
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "9D 8C 8S 8H 7C",
+          "5H 5D 5C 8C 5S"
+        ],
+        "output": [
+          "Duplicate deal"
+        ]
+      },
+      {
+        "input": [
+          "5H KC 5C 3D 1D",
+          "9D AC 8S 6H 7C"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "5H 5D 5C 5D 5S",
+          "6H KC 5C 3D MZ"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "5H AS 9C QC 3DD",
+          "JC KH 9D 6H 9S"
+        ],
+        "output": [
+          "Error input"
+        ]
+      },
+      {
+        "input": [
+          "9D 8C 8S 8H 9S",
+          "5H 5D 5C 2D 5S"
+        ],
+        "output": [
+          "8"
+        ]
+      },
+      {
+        "input": [
+          "9D 8C 8S 8H KS",
+          "QH KD AC 2D 3S"
+        ],
+        "output": [
+          "5"
+        ]
+      },
+      {
+        "input": [
+          "10D AD KD QD JD",
+          "9D 8C 8S 9H 7C"
+        ],
+        "output": [
+          "9"
+        ]
+      },
+      {
+        "input": [
+          "AC 3C 9C KC 7C",
+          "2D 2H 5C 5H 8D"
+        ],
+        "output": [
+          "6"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

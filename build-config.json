@@ -26,6 +26,42 @@
       "directories": [
         "./112_PD2_Final"
       ]
+    },
+    {
+      "_comment": "Program Design (C & Python Language) PastExam",
+      "name": "110 學年歷屆考題",
+      "description": "110 計算機程式設計(含上下學期) 上機考題目",
+      "createDate": 1789972243000,
+      "directories": [
+        "./110_Previous_Exams"
+      ]
+    },
+    {
+      "_comment": "Program Design (C & Python Language) PastExam",
+      "name": "111 學年歷屆考題",
+      "description": "111 計算機程式設計(含上下學期) 上機考題目",
+      "createDate": 1789972243000,
+      "directories": [
+        "./111_Previous_Exams"
+      ]
+    },
+    {
+      "_comment": "Program Design (C & Python Language) PastExam",
+      "name": "112 學年歷屆考題",
+      "description": "112 計算機程式設計(含上下學期) 上機考題目",
+      "createDate": 1789972243000,
+      "directories": [
+        "./112_Previous_Exams"
+      ]
+    },
+    {
+      "_comment": "Program Design (C & Python Language) PastExam",
+      "name": "113 學年歷屆考題",
+      "description": "113 計算機程式設計(含上下學期) 上機考題目",
+      "createDate": 1789972243000,
+      "directories": [
+        "./113_Previous_Exams"
+      ]
     }
   ]
 }

@@ -1,0 +1,73 @@
+{
+  "uuid": null,
+  "title": "BMI = weight(KG) / height^2(M^2)",
+  "createDate": 1789959526548,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "(20%) BMI = weight(KG) / height^2(M^2)",
+    "For example, 52 Kg, 155 cm, BMI =52 KG/1.55^2 (M^2) = 21.60 ",
+    "Input:",
+    "(1) height (Integer, cm) ",
+    "(2) weight (Integer, pound 磅 ) ",
+    "(3) -1 (exit)",
+    "(4) 1 M = 100 cm, 1 pound = 0.454 KG",
+    "Output:",
+    "(1) Normal height: 0.5~2.50 M (0.5<=height<=2.50). Normal weight: 20~300 KG (20<=weight<=300). ",
+    "(2) If height not in normal, then output \"Input Height Error\". If weight no in normal, then output \"Input Weight error\". ",
+    "(3) If 18.50<=BMI<=24.00,，then output the BMI value(無條件捨去至小數點後第二位). ",
+    "(4) If BMI too high (>24.00), then output \"BMI too high\". ",
+    "(5) If BMI too low (<18.50), then output \"BMI too low\"."
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "183 204",
+          "182 102",
+          "158 110",
+          "30 210",
+          "-1"
+        ],
+        "output": [
+          "BMI too high",
+          "BMI too low",
+          "20.0",
+          "Input Height Error"
+        ]
+      },
+      {
+        "input": [
+          "203 250",
+          "206 220",
+          "159 782",
+          "139 95",
+          "-1"
+        ],
+        "output": [
+          "BMI too high",
+          "23.53",
+          "Input Weight error",
+          "22.32"
+        ]
+      },
+      {
+        "input": [
+          "160 104",
+          "170 117",
+          "165 143",
+          "170 152"
+        ],
+        "output": [
+          "BMI too low",
+          "BMI too low",
+          "23.84",
+          "23.87"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

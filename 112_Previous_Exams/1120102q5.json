@@ -1,0 +1,144 @@
+{
+  "_comment": "",
+  "uuid": null,
+  "title": "基因序列",
+  "createDate": 1789971170459,
+  "collections": null,
+  "problem": [
+    "五、基因序列(24%) (6% , 6% , 6% , 6%",
+    ")",
+    " ",
+    "DNA 序列由英文字母組成的字串(string), 基因(gene)是隱",
+    "藏於 DNA 序列中的部分片段",
+    "(子字串",
+    ")",
+    "。 給定一個 DNA ",
+    "序列字串，序列字串長度小於 50",
+    "， 找出在 DNA 序列字",
+    "串中的基因，找法如下： ",
+    "1. 給定一個前面序列字串以及三個後面序列字串，被前",
+    "面序列字串與後面序列字串夾在中間的字串即為基",
+    "因。如：DNA 序列字串為 ATGTTTTAA，前面序列字",
+    "串為 A?G，後面序列字串為 TAG",
+    "、TAA",
+    "、TGA，那被",
+    "ATG",
+    "與 TAA 所夾 在中間的 TTT，則為一個基因。 ",
+    "2. 基因長度為質數，其中未含有前面序列字串與後面",
+    "序列字串。 ",
+    "3. 基因只會包含",
+    "A",
+    "、",
+    "T",
+    "、",
+    "C",
+    "、",
+    "G 四個字元",
+    "4. 前面序列字串中除了開頭或結尾可能會包含一個以 上 的'?'字元，例:A??G，'?'即表示可以是任何字元",
+    "如：根據規則所得到的基因 TTT，其長度為 3，而 3 ",
+    "是",
+    "質數，並且由",
+    "T 組成，因此基因 TTT 會被找出。 ",
+    "找出的基因數需進行排序，先以字串長度由小到大進行",
+    "排序，若長度相同的字串則以字典序進行輸出。",
+    "若沒有找到基因，則輸出\"No gene\"",
+    "Input Description ",
+    "A?G (輸入一個基因前面序列字串) ",
+    "TAG TAA TGA (輸入三個基因後面序列字串，以空格隔 開) ",
+    "ATGTTTTAA (輸入一個 DNA 序列字串) ",
+    "Output Description",
+    "TTT ",
+    "(找出 DNA 序列字串中所有的基因，並且輸出排序後的結",
+    "果)"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "A?Y",
+          "ATG AAA ATA",
+          "ABYQQATGAZYATGCAAAATYANAATA"
+        ],
+        "output": [
+          "No gene"
+        ]
+      },
+      {
+        "input": [
+          "AEG",
+          "VBN GHJ ERT",
+          "AEGAAERT"
+        ],
+        "output": [
+          "AA"
+        ]
+      },
+      {
+        "input": [
+          "A?G?T",
+          "XCV UTY LJK",
+          "ANGWTTCGXCVTAHGQTCCLJKA"
+        ],
+        "output": [
+          "CC",
+          "TCG"
+        ]
+      },
+      {
+        "input": [
+          "A??C",
+          "TDB FHB SDF",
+          "BASXCABAMNCCGGSDFACVCCAATDB"
+        ],
+        "output": [
+          "CAA",
+          "CGG"
+        ]
+      },
+      {
+        "input": [
+          "A?G",
+          "TAS GSD JHB",
+          "ATGBBTASAKGTCAGJHB"
+        ],
+        "output": [
+          "No gene"
+        ]
+      },
+      {
+        "input": [
+          "ADG",
+          "RTR DFD BVS",
+          "ADGCCRTR"
+        ],
+        "output": [
+          "CC"
+        ]
+      },
+      {
+        "input": [
+          "A?T?C",
+          "CZX ASD TGV",
+          "ACTSCTTTTGVACTSCAACZX"
+        ],
+        "output": [
+          "AA",
+          "TTT"
+        ]
+      },
+      {
+        "input": [
+          "A??T",
+          "TRF VBN EFC",
+          "AEDTTATVBNAQWTATATRF"
+        ],
+        "output": [
+          "ATA",
+          "TAT"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

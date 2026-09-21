@@ -1,0 +1,95 @@
+{
+  "uuid": null,
+  "title": "指標函式計算圖形的周長與面積及所有圖形的周長與面積加總",
+  "createDate": 1789970771133,
+  "collections": null,
+  "problem": [
+    "使用 struct 定義 shape(圖形), circle(圓), rectangle (矩形), square(正方形), triangle(三角形)。",
+    "圓有半徑，矩形有長寬，正方形有邊長，三角形有三個邊。計算各圖形周長、面積，及所有圖形周長、面積加總。",
+    "注意: PI 設 4。所有長度、計算均以整數處理。",
+    "本題須使用以下 struct 定義，以及定義與實做相對的 function pointer 的 function 才計分。",
+    "#define shapeText(TYPE) char name[10]; \\",
+    " int (*perimeter)(struct TYPE*); \\ ",
+    " int (*area)(struct TYPE*);",
+    "typedef struct shape_s { shapeText(shape_s); } shape_t;",
+    "typedef struct circle_s {",
+    " shapeText(circle_s);",
+    " int radius;",
+    "} circle_t;",
+    "typedef struct rectangle_s ",
+    "{ ",
+    " shapeText(rectangle_s);",
+    " int width, height;",
+    "} rectangle _t;",
+    "typedef struct square_s{",
+    "shapeText(square_s);",
+    " int side;",
+    "} square_t;",
+    "typedef struct triangle_s {",
+    " shapeText(triangle_s);",
+    " int s1, s2, s3;",
+    "} triangle_t;",
+    "三角形面積公式(海龍公式)：",
+    "s = (s1 + s2 + s3) / 2, ∆= sqrt(s(s-s1)(s-s2)(s-s3))",
+    "輸入說明",
+    "Line 1, 輸入圖形個數 N。",
+    "Line 2, 輸入圖形種類。",
+    "Line 3, 輸入圖形所需資料。",
+    "Line 4, 輸入圖形種類。",
+    "Line 5, 輸入圖形所需資料。",
+    "…",
+    "circle，下一行輸入半徑。",
+    "rectangle，下一行輸入長寬。",
+    "square，下一行輸入邊長。",
+    "triangle，下一行輸入三個邊。",
+    "輸出說明",
+    "Line 1~N: 輸出 N 個圖形的種類、周長與面積，以空白間隔。接著以周長大到小排序後輸出，若周長相同，則以面積大到小排序輸出。",
+    "Line N+1: 輸出 N 個圖形的周長總和、面積總和，以空白間隔。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "3",
+          "triangle",
+          "3 4 5",
+          "square",
+          "3",
+          "rectangle",
+          "4 5"
+        ],
+        "output": [
+          "rectangle 18 20",
+          "square 12 9",
+          "triangle 12 6",
+          "42 35"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "triangle",
+          "8 23 24",
+          "rectangle",
+          "25 37",
+          "circle",
+          "15",
+          "square",
+          "16",
+          "square",
+          "17"
+        ],
+        "output": [
+          "rectangle 124 925",
+          "circle 120 900",
+          "square 68 289",
+          "square 64 256",
+          "triangle 55 78",
+          "431 2448"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

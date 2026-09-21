@@ -1,0 +1,91 @@
+{
+  "uuid": null,
+  "title": "一、文章處理 (25%- 一個功能 5%)",
+  "createDate": 1700000000000,
+  "collections": null,
+  "problem": [
+    "輸入一個英文句子 A (空白、大小寫英文字母組合)、 2 個英文字(word-以大小寫英文字母組合且以一個空白分隔) P, Q、整數 N、文章分析處理指令 C。",
+    "",
+    "輸入說明",
+    "Line 1, A",
+    "Line 2, P",
+    "Line 3, Q",
+    "Line 4, N",
+    "Line 5, C",
+    "C=1, 將文句 A 中 P 字串以 Q 字串取代。",
+    "C=2, 在文句 A 中 P 字串前插入 Q 字串。",
+    "C=3, 將文句 A 中 P 字串刪除。",
+    "C=4, 統計文句 A 中英文字出現頻率前 2 高，頻率高到低排列，若頻率一樣則由字母小到大排列，大寫在小寫前，用 : 隔開單字與頻率，冒號前後無空白，一個單字與頻率一行。",
+    "C=5，將文句中，出現頻率小於 N 的英文字刪除。",
+    "",
+    "輸出說明",
+    "依據 C 的指令輸出結果。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "Can you can a can as a canner can can a can",
+          "can",
+          "ban",
+          "3",
+          "1"
+        ],
+        "output": [
+          "Can you ban a ban as a canner ban ban a ban"
+        ]
+      },
+      {
+        "input": [
+          "Whether the weather be cold or whether the weather be hot",
+          "the",
+          "a",
+          "2",
+          "2"
+        ],
+        "output": [
+          "Whether a the weather be cold or whether a the weather be hot"
+        ]
+      },
+      {
+        "input": [
+          "The bmi doctors want to develop a bmi calculator to help people calculate bmi",
+          "bmi",
+          "BMI",
+          "2",
+          "3"
+        ],
+        "output": [
+          "The doctors want to develop a calculator to help people calculate"
+        ]
+      },
+      {
+        "input": [
+          "I wish to wish the wish you wish to wish but if you wish the wish the witchwishes I wont wish the wish you wish to wish",
+          "wish",
+          "wished",
+          "2",
+          "4"
+        ],
+        "output": [
+          "wish:11",
+          "the:4"
+        ]
+      },
+      {
+        "input": [
+          "Fuzzy Wuzzy was a bear and Fuzzy Wuzzy had no hair",
+          "Fuzzy",
+          "Fuzzer",
+          "2",
+          "5"
+        ],
+        "output": [
+          "Fuzzy Wuzzy Fuzzy Wuzzy"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

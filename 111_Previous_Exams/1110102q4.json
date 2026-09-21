@@ -1,0 +1,97 @@
+{
+  "uuid": null,
+  "title": "基因序列",
+  "createDate": 1789970824080,
+  "collections": null,
+  "problem": [
+    "DNA 序列由 A, C, G, T 四個字元組成的字串(string)，",
+    "基因(gene)是隱藏於 DNA 序列中的部分片段(子字串)。",
+    "給定一個 DNA 序列字串，序列字串長度小於 50，",
+    "找出在 DNA 序列字串中的基因，找法如下：",
+    "1. 給定一個前面序列字串以及三個後面序列字串，被前面序列字串與後面序列字串夾在中間的字串即為基因；",
+    "如：DNA 序列字串為 ATGTTTTAA，前面序列字串為 ATG，後面序列字串為 TAG、TAA、TGA，那被 ATG與 TAA所夾在中間的 TTT，則為一個基因。",
+    "2. 基因長度為質數，其中未含有前面序列字串與後面序列字串；",
+    "如：根據規則一所得到的基因 TTT，其長度為 3，而 3 是質數，因此基因 TTT 會被找出。",
+    "找出的基因數需進行排序，先以字串長度由小到大進行排序，若長度相同的字串則以字典序進行輸出。",
+    "",
+    "Input Description",
+    "Line1: 輸入一個基因前面序列字串",
+    "Line2: 輸入三個基因後面序列字串，以空格隔開",
+    "Line3: 輸入一個 DNA 序列字串",
+    "所有字串的長度皆小於 50",
+    "",
+    "Output Description",
+    "找出 DNA序列字串中所有的基因，並且輸出排序後的結果",
+    "若輸入的序列字串中有非 A、T、C、G 等字元，輸出\"Input error\"",
+    "若沒有找到基因，則輸出\"No gene\""
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "ATB",
+          "TAG TAA TGA",
+          "ATGTTTTAA"
+        ],
+        "output": [
+          "Input error"
+        ]
+      },
+      {
+        "input": [
+          "ATG",
+          "TAG TRA TGA",
+          "ATGTTTTAA"
+        ],
+        "output": [
+          "Input error"
+        ]
+      },
+      {
+        "input": [
+          "ATG",
+          "TAG TAA TGA",
+          "AZGTTTTAA"
+        ],
+        "output": [
+          "Input error"
+        ]
+      },
+      {
+        "input": [
+          "ATG",
+          "TAG TAA TGA",
+          "ATGTTTTAA"
+        ],
+        "output": [
+          "TTT"
+        ]
+      },
+      {
+        "input": [
+          "ATG",
+          "TAG TAA TGA",
+          "ATGTTTTACGCT"
+        ],
+        "output": [
+          "No gene"
+        ]
+      },
+      {
+        "input": [
+          "ATG",
+          "TAG TAA TGA",
+          "ATGTTTTAGATGCTATGAATGACGTTTAAATGACCCATAG"
+        ],
+        "output": [
+          "CTA",
+          "TTT",
+          "ACCCA",
+          "ACGTT"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

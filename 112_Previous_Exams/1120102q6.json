@@ -1,0 +1,224 @@
+{
+  "_comment": "",
+  "uuid": null,
+  "title": "理想大學",
+  "createDate": 1789971170460,
+  "collections": null,
+  "problem": [
+    "六、理想大學(24%) (6% , 6% , 6% , 6%) ",
+    " ",
+    "每一大學可以擁有的 8 種屬性: ",
+    "GF(Good Food) :代表附近有美食。",
+    "BC(Big Campus):代表有大校園。",
+    "NC(Next to City):代表鄰近有大城市。",
+    "CT(Convenient Transportation):代表交通方便。",
+    "NS(Next to Sea):代表靠海。",
+    "NM(Next to Mountain):代表依山。",
+    "HL(Has Lake):代表校園有湖。",
+    "NL(Near Landscape):代表附近有風景區。",
+    "輸入規則: ",
+    "1. 第一行輸入一個正整數 n，代表大學個數 n(n<=10)。",
+    "2. 其後n行，每一行第一項為大學名稱，接著為其屬性。",
+    "大學名稱最多有 10 個字母，各屬性為 2 個字母。大學",
+    "與屬性資料均為英文字母組成，中間以空白隔開。",
+    "3. 接下來 1 行輸入一個正整數 m，代表查詢個數 m(m<=10) ",
+    "4. 其後 m 行，每一行有一個查詢。查詢條件為校園屬性",
+    "組成，每個校園屬性為 2 個字元。用 + 號區格的條件",
+    "代表\"或\" 的關係，沒有 + 區隔的條件代表 \"且\" 的關係。",
+    "屬性間及 + 之間有 1 個空白間隔。例如: BC NS + CT HL ",
+    "代表需找出【大校園且靠海】或【交通方便且校園有",
+    "湖】的所有大學名稱。其格式如下：",
+    "XX YY + AA BB",
+    "意思為屬性條件為：【XX 且 YY】或【AA 且 BB】",
+    "5. 輸入正整數 b，b=0 或 b=1 決定輸出的格式",
+    "輸出規則: ",
+    "b=0:",
+    "當 b=0 時，代表輸出最符合條件的大學(即符合最多組條件)。",
+    "例如：條件 NS BC NC + CT HL，大學名稱及屬性為 NTUT ",
+    "NC BC NS ，則 NTUT 符合 1 組條件。假如大學名稱及屬性",
+    "為 NTU CT，則 NTU 符合 0 組條件，此外如果有多間",
+    "學校同時為最符合（即符合條件的組數一樣多），則依學",
+    "校輸入順序輸出，中間以空白隔開。",
+    "b=1:",
+    "當 b=1 時，代表輸出部分符合部分條件的大學（不需要整組",
+    "屬性相同，即要求的條件可以拆開來看）。輸出依照符合",
+    "的部分屬性數量由大到小輸出大學名稱，同名次的話以輸",
+    "入順序輸出，符合 0 個部分條件的不用輸出，中間以空白隔",
+    "開。",
+    "例如：條件 NS BC NC + CT HL，大學名稱及屬性為 NTUT ",
+    "BC NS（符合兩種屬性）、NTUST BC（符合一種屬性），",
+    "則輸出",
+    "NTUT NTUST。",
+    "此題無需考慮沒有任何符合條件的大學情況",
+    "Input Description",
+    "3 (總共有 5 間學校) ",
+    "NSYSU NC CT NS NM (學校名稱為 NSYSU，擁有的屬",
+    "性為 NC、CT、NS、NM)",
+    "NTU BC NC CT NS (學校名稱為 NTU，擁有的屬性為",
+    "BC、NC、CT、NS)",
+    "NCCU BC NL HL (學校名稱為 NCCU，擁有的屬性為",
+    "BC、NL、HL)",
+    "2 (總共有 2 組查詢) ",
+    "BC NS + CT HL (有大校園且靠海 或 交通方便且校園有",
+    "湖) ",
+    "BC + NS (有大校園 或 靠海) ",
+    "0 (輸出以當 b=0 時候的方式輸出) ",
+    "Output Description",
+    "NTU (NSYSU 符合 0 組條件，NTU 符合 1 組條件，",
+    "NCCU",
+    " 符合 0 組條件，故 NTU 符合最多組條件) ",
+    "NTU (NSYSU 符合 0 組條件，NTU 符合 1 組條件，",
+    "NCCU",
+    " 符合 0 組條件，故 NTU 符合最多組條件)"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "3",
+          "NCUE GF NL NM",
+          "NSYSU NS",
+          "NCCU CT BC NM HL NC",
+          "2",
+          "HL NL + CT BC + NM GF",
+          "NL + NL CT HL",
+          "0"
+        ],
+        "output": [
+          "NCUE NCCU",
+          "NCUE"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "CCU CT NS GF",
+          "NCNU NS",
+          "NTPU NL HL NM BC",
+          "NUK BC NC NL HL",
+          "3",
+          "NS + CT HL",
+          "HL",
+          "GF NS + NL HL + NM",
+          "0"
+        ],
+        "output": [
+          "CCU NCNU",
+          "NTPU NUK",
+          "CCU NTPU NUK"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "NQU CT GF HL NL NM",
+          "NTUA HL NL",
+          "TNUA CT NM NL GF NC",
+          "TNNUA BC NL GF",
+          "PCCU NL NM",
+          "2",
+          "GF NM CT",
+          "GF NS + NL",
+          "1"
+        ],
+        "output": [
+          "NQU TNUA TNNUA PCCU",
+          "NQU TNUA TNNUA NTUA PCCU"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "FJU NL HL GF NM BC CT",
+          "SCU NM NC CT NS",
+          "USC NS GF NL BC",
+          "4",
+          "NC",
+          "NM NL CT BC HL NS",
+          "NS GF",
+          "NC GF BC",
+          "1"
+        ],
+        "output": [
+          "SCU",
+          "FJU SCU USC",
+          "USC FJU SCU",
+          "FJU USC SCU"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "NTHU GF HL",
+          "NCTU NM GF BC",
+          "NCKU CT GF NS",
+          "3",
+          "HL + BC NL + CT BC",
+          "NM HL + CT + GF NS",
+          "NM",
+          "0"
+        ],
+        "output": [
+          "NTHU",
+          "NCKU",
+          "NCTU"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "NSYSU NC CT NS NM",
+          "NTU BC NC CT NS",
+          "NCCU BC NL HL",
+          "Providence BC NC",
+          "NTHU BC NS",
+          "2",
+          "BC NS + CT HL",
+          "NM + BC NL + BC NC",
+          "0"
+        ],
+        "output": [
+          "NTU NTHU",
+          "NSYSU NTU NCCU Providence"
+        ]
+      },
+      {
+        "input": [
+          "3",
+          "NTUE CT NM HL NC",
+          "NHCUE NS",
+          "NTCU NS NC",
+          "3",
+          "NS + BC HL",
+          "CT",
+          "BC GF NC NS NL",
+          "1"
+        ],
+        "output": [
+          "NTUE NHCUE NTCU",
+          "NTUE",
+          "NTCU NTUE NHCUE"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "NCU CT NM",
+          "NUU BC GF NL NM CT",
+          "NTOU GF NL NM",
+          "NTNU HL NC",
+          "2",
+          "BC",
+          "HL BC + NS GF + NL + NM",
+          "1"
+        ],
+        "output": [
+          "NUU",
+          "NUU NTOU NCU NTNU"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

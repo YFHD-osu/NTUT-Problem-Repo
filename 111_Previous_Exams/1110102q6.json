@@ -1,0 +1,124 @@
+{
+  "uuid": null,
+  "title": "理想房子",
+  "createDate": 1789970824080,
+  "collections": null,
+  "problem": [
+    "假設在尋找房屋中可以用下列 9 種屬性表示：",
+    "GF(Good Food) ：代表附近有美食。",
+    "BS(Beside School)：代表是學區房。",
+    "NH(Next to Hospital)：代表鄰近醫學中心。",
+    "CT(Convenient Transportation)：代表交通方便。",
+    "NM(Next to Mall)：代表鄰近賣場。",
+    "RH(Rough House)：代表是毛胚屋。",
+    "PS(Parking Space)：代表附有停車位。",
+    "NP(Next to Park)：代表鄰近公園。",
+    "SH(Second-hand House)：代表為中古屋。",
+    "給定 N 間房屋名稱及其房屋屬性，再給定選擇方式 b 以及 M 個查詢條件，來選擇出適合的房屋。",
+    "",
+    "Input Description",
+    "Line1: 輸入正整數 N，代表房屋個數( 1<= N <=10 )。",
+    "Line2~N+1: 每一行第一項為房屋名稱，接著為其屬性。",
+    "LineN+2: 輸入正整數 b、M，b 表示挑選方式(0<=b<=3)，M 代表有 M 次查詢( 1<= M <=10 )",
+    "其後 M 行: 每一行為一個查詢，查詢條件由房屋屬性組成，用 + 號區隔的條件代表\"或\" 的關係，沒有 + 區隔的條件代表\"且\" 的關係。",
+    "屬性間以及 + 之間有 1 個空白間隔。",
+    "例如： GF BS + CT RH 代表需找出【有美食且為學區房】或【交通方便且為毛胚屋】的所有房屋名稱。",
+    "其格式如下：XX YY + AA BB 意思為屬性條件為: XX 且 YY，或是 AA 且 BB。",
+    "當 b=0 時，代表查詢條件皆為\"或\"，並輸出符合條件最多的房屋。",
+    "當 b=1 時，代表查詢條件皆為\"且\"，並輸出能符合條件的房屋。",
+    "當 b=2 時，代表輸出能符合條件的房屋。 ",
+    "當 b=3 時，代表輸出符合最多條件的房屋。",
+    "",
+    "Output Description",
+    "根據每個查詢條件輸出所有符合之房屋名稱，",
+    "當所有房屋皆無符合查詢條件，則輸出 No matching house。",
+    "如有 M 個查詢條件，即會有 M 行輸出。",
+    "若一個查詢條件中有多個房屋符合，請按照字典序排序各房屋名稱，房屋間以一個空白分隔。"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "3",
+          "BrownHouse NH BS",
+          "YellowPark NP SH NH",
+          "BlockA GF SH",
+          "0 1",
+          "NH + CT + SH"
+        ],
+        "output": [
+          "YellowPark"
+        ]
+      },
+      {
+        "input": [
+          "4",
+          "MrMansion CT GF BS NM",
+          "MerryStand NM GF SH",
+          "FriendNTUT CT NM NP RH GF",
+          "CookiePark RH SH CT GF NP",
+          "1 2",
+          "GF NM CT",
+          "NP GF RH"
+        ],
+        "output": [
+          "FriendNTUT MrMansion",
+          "CookiePark FriendNTUT"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "YGarden GF CT BS RH PS",
+          "PiHouse CT BS PS RH",
+          "JingAnMansion BS NP CT",
+          "AnPark NP CT SH",
+          "SinZhangCity NH BS SH",
+          "2 2",
+          "BS RH + CT SH",
+          "GF + NM BS + NH SH"
+        ],
+        "output": [
+          "AnPark PiHouse YGarden",
+          "SinZhangCity YGarden"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "Gingerhouse PS SH BS",
+          "AGarden GF CT BS RH PS",
+          "Ours PS CT NH GF",
+          "SunMoonH GF PS NP",
+          "Hualan NP SH PS NH",
+          "3 2",
+          "BS NM + NP + CT + GF",
+          "GF PS + GF NP"
+        ],
+        "output": [
+          "AGarden Ours SunMoonH",
+          "SunMoonH"
+        ]
+      },
+      {
+        "input": [
+          "5",
+          "Taichung7th NP CT PS NM",
+          "Brickshouse SH GF NP",
+          "Thatchhouse SH NH",
+          "Gingerhouse PS SH BS",
+          "SugarcandyH BS CT",
+          "3 2",
+          "BS CT + NP PS",
+          "NH BS NM"
+        ],
+        "output": [
+          "SugarcandyH Taichung7th",
+          "No matching house"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}

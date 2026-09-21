@@ -1,0 +1,173 @@
+{
+  "uuid": null,
+  "title": "計算 EMI",
+  "createDate": 1789969877257,
+  "collections": [
+    null
+  ],
+  "problem": [
+    "二、計算 EMI (20%)(5%, 5%, 5%, 5%)",
+    "EMI = height^2(cm^2)%(weight(KG))",
+    "Normal height: 50~250 cm (50<=height<=250).",
+    "Normal weight: 20~300 KG (20<=weight<=300)",
+    "e.g. 50 Kg, 158 cm",
+    " EMI = (158^2)%(50) = 14",
+    "規則 :",
+    "(1) If height not in normal, then output \"Input Height Error\".",
+    "(2) If weight not in normal, then output \"Input Weight Error\".",
+    "(3) If 10<=EMI<=35, then output the EMI value",
+    "(4) If EMI too high (>35), then output “EMI too high”",
+    "(5) If EMI too low (<10), then output “EMI too low”",
+    "(6) 最後根據 EMI 由大到小的順序將名字和 EMI 輸出",
+    " (若該名字為 Input Height Error 或 Input Weight Error，則不參與最後 EMI 的排序和輸出)"
+  ],
+  "testcase": {
+    "codeType": 1,
+    "cases": [
+      {
+        "input": [
+          "Shelly 191 71",
+          "Tom 163 45",
+          "Amy 153 55",
+          "End"
+        ],
+        "output": [
+          "EMI too high",
+          "19",
+          "34",
+          "Shelly 58",
+          "Amy 34",
+          "Tom 19"
+        ]
+      },
+      {
+        "input": [
+          "Kevin 155 43",
+          "Jason 183 57",
+          "Joe 183 15",
+          "Linda 191 34",
+          "End"
+        ],
+        "output": [
+          "31",
+          "30",
+          "Input Weight Error",
+          "33",
+          "Linda 33",
+          "Kevin 31",
+          "Jason 30"
+        ]
+      },
+      {
+        "input": [
+          "Alicia 182 56",
+          "Steven 262 68",
+          "Kitty 156 88",
+          "Bill 138 41",
+          "Tena 192 45",
+          "End"
+        ],
+        "output": [
+          "28",
+          "Input Height Error",
+          "EMI too high",
+          "20",
+          "EMI too low",
+          "Kitty 48",
+          "Alicia 28",
+          "Bill 20",
+          "Tena 9"
+        ]
+      },
+      {
+        "input": [
+          "Aileen 135 18",
+          "Mina 171 53",
+          "Tiffany 42 53",
+          "Andy 163 31",
+          "End"
+        ],
+        "output": [
+          "Input Weight Error",
+          "EMI too high",
+          "Input Height Error",
+          "EMI too low",
+          "Mina 38",
+          "Andy 2"
+        ]
+      },
+      {
+        "input": [
+          "Cindy 138 41",
+          "Andy 185 42",
+          "Grace 157 45",
+          "End"
+        ],
+        "output": [
+          "20",
+          "EMI too high",
+          "34",
+          "Andy 37",
+          "Grace 34",
+          "Cindy 20"
+        ]
+      },
+      {
+        "input": [
+          "Sam 224 327",
+          "Chris 196 54",
+          "Jessica 156 42",
+          "Eva 191 67",
+          "End"
+        ],
+        "output": [
+          "Input Weight Error",
+          "22",
+          "18",
+          "33",
+          "Eva 33",
+          "Chris 22",
+          "Jessica 18"
+        ]
+      },
+      {
+        "input": [
+          "Zone 166 81",
+          "Hellen 285 143",
+          "Mary 131 18",
+          "Cookie 153 55",
+          "Xavier 177 54",
+          "End"
+        ],
+        "output": [
+          "16",
+          "Input Height Error",
+          "Input Weight Error",
+          "34",
+          "EMI too low",
+          "Cookie 34",
+          "Zone 16",
+          "Xavier 9"
+        ]
+      },
+      {
+        "input": [
+          "Ben 42 84",
+          "Bob 183 45",
+          "Geoff 185 42",
+          "Glen 159 403",
+          "End"
+        ],
+        "output": [
+          "Input Height Error",
+          "EMI too low",
+          "EMI too high",
+          "Input Weight Error",
+          "Geoff 37",
+          "Bob 9"
+        ]
+      }
+    ]
+  },
+  "sampleCode": []
+}
